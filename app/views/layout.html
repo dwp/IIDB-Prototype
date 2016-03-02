@@ -16,10 +16,19 @@
   with-proposition
 {% endblock %}
 
-{% block after_header %}
-<!-- {% include "includes/phase_banner_alpha.html" %} -->
-{% endblock %}
+{% block after_header %}{% endblock %}
 
 {% block body_end %}
   {% include "includes/scripts.html" %}
+{% endblock %}
+
+{% block content %}
+{% include "includes/phase_banner_alpha.html" %}
+{% endblock %}
+
+{% block footer_support_links %}
+  <div class="footer-detail">
+    <p class="font-xsmall"><a href="https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter" target="privacyLink">Privacy Policy</a></p>
+    <p class="font-xsmall">Made in Stockport by Department for Work &amp; Pensions</p>
+  </div>
 {% endblock %}

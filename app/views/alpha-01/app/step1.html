@@ -11,31 +11,33 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-      <h1 class="heading-large">Can I get Industrial Injuries Disablement Benenfit?</h1>
+      <h1 class="heading-large">Can I get Industrial Injuries Disablement Benefit?</h1>
 
       <form action="/alpha-01/app/step2" method="post">
 
-        <h2 class="heading-medium">Were you employed or on an approved employment training scheme or course when the accident occured?</h2>
+        {% set q1 = "Were you employed or on an approved employment training scheme or course when the accident occured?" %}
 
-        <fieldset class="form-group js-eligibity-question">
+        <h2 class="heading-medium">{{ q1 }}</h2>
+
+        <fieldset class="form-group js-eligibility-question">
 
             <fieldset class="inline">
 
-              <legend class="visuallyhidden">Were you employed or on an approved employment training scheme or course when the accident occured?</legend>
+              <legend class="visuallyhidden">{{ q1 }}</legend>
 
               <label class="block-label" for="employed-yes">
-                <input id="employed-yes" type="radio" name="employed" value="Yes">
+                <input id="employed-yes" type="radio" name="employed" value="Yes" class="js-eligibility-question-field" data-next="js-eligibility-question">
                 Yes
               </label>
 
               <label class="block-label" for="employed-no">
-                <input id="employed-no" type="radio" name="employed" value="No">
+                <input id="employed-no" type="radio" name="employed" value="No" class="js-eligibility-question-field">
                 No
               </label>
 
             </fieldset>
 
-            <div class="alert js-eligibility-alert">
+            <div class="form-alert js-eligibility-alert hidden">
               <p>
                 You need to have been employed at the time of the accident so you will not able to claim Industrial Injuries Disability Benefit.
               </p>
@@ -43,7 +45,7 @@
 
         </fieldset>
 
-        <fieldset class="form-group js-eligibity-question">
+        <fieldset class="form-group js-eligibility-question js-hidden">
 
           {% set q2 = "Were you self employment at the time of the accident? "%}
 
@@ -54,18 +56,18 @@
               <legend class="visuallyhidden">{{ q2 }}</legend>
 
               <label class="block-label" for="self-employed-yes">
-                <input id="self-employed-yes" type="radio" name="selfemployed" value="Yes">
+                <input id="self-employed-yes" type="radio" name="selfemployed" value="Yes" class="js-eligibility-question-field">
                 Yes
               </label>
 
               <label class="block-label" for="self-employed-no">
-                <input id="self-employed-no" type="radio" name="selfemployed" value="No">
+                <input id="self-employed-no" type="radio" name="selfemployed" value="No" class="js-eligibility-question-field" data-next="js-eligibility-question">
                 No
               </label>
 
             </fieldset>
 
-            <div class="alert js-eligibility-alert">
+            <div class="form-alert js-eligibility-alert hidden">
               <p>
                 If you were self employed at the time of the accident you will not able to claim Industrial Injuries Disability Benefit.
               </p>
@@ -73,7 +75,7 @@
 
         </fieldset>
 
-        <fieldset class="form-group js-eligibity-question">
+        <fieldset class="form-group js-eligibility-question js-hidden">
 
           {% set q3 = "Did the accident occur in England, Scotland or Wales? "%}
 
@@ -84,18 +86,18 @@
               <legend class="visuallyhidden">{{ q3 }}</legend>
 
               <label class="block-label" for="region-yes">
-                <input id="region-yes" type="radio" name="region" value="Yes">
+                <input id="region-yes" type="radio" name="region" value="Yes" class="js-eligibility-question-field" data-next="primary-nav">
                 Yes
               </label>
 
               <label class="block-label" for="region-no">
-                <input id="region-no" type="radio" name="region" value="No">
+                <input id="region-no" type="radio" name="region" value="No" class="js-eligibility-question-field">
                 No
               </label>
 
             </fieldset>
 
-            <div class="alert js-eligibility-alert">
+            <div class="form-alert js-eligibility-alert hidden">
               <p>
                 If you were outside England, Scotland or Wales, pleae contact IPC.
               </p>
@@ -103,7 +105,7 @@
 
         </fieldset>
 
-        <fieldset class="primary-nav form-group">
+        <fieldset class="primary-nav form-group js-eligibility-question js-hidden">
           <legend class="visuallyhidden">Form Navigation</legend>
           <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
         </fieldset>
@@ -114,4 +116,59 @@
   </div>
 </main>
 
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+  <script type="text/javascript">
+
+    var pageScript = {
+
+      config: {
+        questionSel: 'js-eligibility-question',
+        questionFieldSel: 'js-eligibility-question-field',
+        questionAlertSel: 'js-eligibility-alert',
+        questionNextAttr: 'data-next',
+        hiddenClass: 'js-hidden'
+      },
+
+      handleQuestions: function() {
+
+        var self = this,
+            $questions = $('.' + this.config.questionSel);
+
+        $questions.each(function(index, elm){
+
+          var $thisQuestion = $(elm),
+              $questionAlert = $thisQuestion.find('.' + this.config.questionAlertSel),
+              $questionFields = $thisQuestion.find('.' + this.config.questionFieldSel);
+
+          $questionFields.on('change', function(e){
+            var $thisField = $(e.currentTarget);
+
+            if ($thisField.is('[' + this.config.questionNextAttr + ']')){
+              $thisQuestion.next('.' + $thisField.attr(this.config.questionNextAttr)).removeClass(this.config.hiddenClass);
+              $questionAlert.addClass(this.config.hiddenClass);
+            } else {
+              $thisQuestion.nextAll('.' + this.config.questionSel).addClass(this.config.hiddenClass);
+              $questionAlert.removeClass(this.config.hiddenClass);
+            }
+
+          }.bind(this));
+
+        }.bind(this));
+
+      },
+      init: function() {
+        this.handleQuestions();
+      }
+    }
+
+    $(function(){
+      pageScript.init();
+    });
+
+  </script>
 {% endblock %}

@@ -38,4 +38,12 @@
   }
 }
 
-// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to
+
+.form-alert {
+  background: $yellow;
+  padding: 15px;
+  :last-child {
+    margin-bottom: 0;
+  }
+}
