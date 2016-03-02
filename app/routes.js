@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
+var bodyparser = require('body-parser');
 
 router.get('/', function (req, res) {
-  
+
   res.render('index');
 
 });
@@ -37,6 +38,13 @@ router.get('/examples/over-18', function (req, res) {
 
   }
 
+});
+
+// temporary until I consider how to version this sort of logic, etc.
+var prototypePath = '/alpha-01/app';
+
+router.post(prototypePath + '/step0', function(req, res){
+  res.redirect(prototypePath + '/' + (req.body['claim-reason'] == "other" ? "ineligible" : "step1" ));
 });
 
 // add your routes here

@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype - IIDB - Alpha 01
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">Can I get Industrial Injuries Disablement Benenfit?</h1>
+
+      <form action="/alpha-01/app/step2" method="post">
+
+        <h2 class="heading-medium">Were you employed or on an approved employment training scheme or course when the accident occured?</h2>
+
+        <fieldset class="form-group js-eligibity-question">
+
+            <fieldset class="inline">
+
+              <legend class="visuallyhidden">Were you employed or on an approved employment training scheme or course when the accident occured?</legend>
+
+              <label class="block-label" for="employed-yes">
+                <input id="employed-yes" type="radio" name="employed" value="Yes">
+                Yes
+              </label>
+
+              <label class="block-label" for="employed-no">
+                <input id="employed-no" type="radio" name="employed" value="No">
+                No
+              </label>
+
+            </fieldset>
+
+            <div class="alert js-eligibility-alert">
+              <p>
+                You need to have been employed at the time of the accident so you will not able to claim Industrial Injuries Disability Benefit.
+              </p>
+            </div>
+
+        </fieldset>
+
+        <fieldset class="form-group js-eligibity-question">
+
+          {% set q2 = "Were you self employment at the time of the accident? "%}
+
+          <h2 class="heading-medium">{{ q2 }}</h2>
+
+            <fieldset class="inline">
+
+              <legend class="visuallyhidden">{{ q2 }}</legend>
+
+              <label class="block-label" for="self-employed-yes">
+                <input id="self-employed-yes" type="radio" name="selfemployed" value="Yes">
+                Yes
+              </label>
+
+              <label class="block-label" for="self-employed-no">
+                <input id="self-employed-no" type="radio" name="selfemployed" value="No">
+                No
+              </label>
+
+            </fieldset>
+
+            <div class="alert js-eligibility-alert">
+              <p>
+                If you were self employed at the time of the accident you will not able to claim Industrial Injuries Disability Benefit.
+              </p>
+            </div>
+
+        </fieldset>
+
+        <fieldset class="form-group js-eligibity-question">
+
+          {% set q3 = "Did the accident occur in England, Scotland or Wales? "%}
+
+          <h2 class="heading-medium">{{ q3 }}</h2>
+
+            <fieldset class="inline">
+
+              <legend class="visuallyhidden">{{ q3 }}</legend>
+
+              <label class="block-label" for="region-yes">
+                <input id="region-yes" type="radio" name="region" value="Yes">
+                Yes
+              </label>
+
+              <label class="block-label" for="region-no">
+                <input id="region-no" type="radio" name="region" value="No">
+                No
+              </label>
+
+            </fieldset>
+
+            <div class="alert js-eligibility-alert">
+              <p>
+                If you were outside England, Scotland or Wales, pleae contact IPC.
+              </p>
+            </div>
+
+        </fieldset>
+
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
