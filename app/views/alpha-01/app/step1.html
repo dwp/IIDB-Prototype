@@ -131,7 +131,7 @@
         questionFieldSel: 'js-eligibility-question-field',
         questionAlertSel: 'js-eligibility-alert',
         questionNextAttr: 'data-next',
-        hiddenClass: 'js-hidden'
+        hiddenClass: 'js-hidden hidden'
       },
 
       handleQuestions: function() {
@@ -145,7 +145,7 @@
               $questionAlert = $thisQuestion.find('.' + this.config.questionAlertSel),
               $questionFields = $thisQuestion.find('.' + this.config.questionFieldSel);
 
-          $questionFields.on('change', function(e){
+          $questionFields.on('change click', function(e){
             var $thisField = $(e.currentTarget);
 
             if ($thisField.is('[' + this.config.questionNextAttr + ']')){
