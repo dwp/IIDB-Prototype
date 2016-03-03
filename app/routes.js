@@ -47,6 +47,10 @@ router.post(prototypePath + '/step0', function(req, res){
   res.redirect(prototypePath + '/' + (req.body['claim-reason'] == "other" ? "ineligible" : "step1" ));
 });
 
+router.post(prototypePath + '/step2', function(req, res){
+  res.redirect(prototypePath + '/step2');
+});
+
 // add your routes here
 
 module.exports = router;
