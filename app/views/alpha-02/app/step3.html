@@ -6,8 +6,6 @@
 
 {% block content %}
 
-{{ posted | log | safe }}
-
 <main id="content" role="main">
 
   <div class="grid-row">
@@ -18,10 +16,8 @@
       <h3 class="heading-medium">Please enter {{ posted.firstname | d('Name here') }}'s Address details</h3>
 
       <div class="form-group">
-
         <label class="form-label" for="line1">Address Line 1</label>
         <input class="form-control" id="line1" type="text" name="line1">
-
       </div>
 
       <div class="form-group">

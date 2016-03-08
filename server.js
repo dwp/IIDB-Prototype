@@ -10,6 +10,7 @@ var path = require('path'),
     port = (process.env.PORT || config.port),
     utils = require(__dirname + '/lib/utils.js'),
     filters = require(__dirname + '/lib/filters.js'),
+    _ = require('lodash'),
 
 // Grab environment variables specified in Procfile or as Heroku config vars
     username = process.env.USERNAME,
@@ -67,8 +68,12 @@ app.use(function (req, res, next) {
 
 // Add variables that are available in all views
 app.use(function (req, res, next) {
-  res.locals.serviceName=config.serviceName;
-  res.locals.cookieText=config.cookieText;
+  _.merge(res.locals,{
+    serviceName: config.cookieText,
+    cookieText: config.serviceName,
+    path: req.params[0],
+    postData: (req.body ? req.body : false)
+  });
   next();
 });
 
@@ -82,7 +87,7 @@ if (typeof(routes) != "function"){
 }
 
 // auto render any view that exists
-app.get(/^\/([^.]+)$/, function (req, res) {
+app.all(/^\/([^.]+)$/, function (req, res) {
 
   var path = (req.params[0]);
 

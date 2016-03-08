@@ -19,23 +19,23 @@
       {% set QuestionTitle = "Which of the following statements best describes the reason you would like to claim?" %}
       <h1 class="heading-medium">{{ QuestionTitle }}</h1>
 
-      <form action="/alpha-02/app/step0" method="post">
+      <form action="/alpha-02/app/step1" method="post">
         <fieldset class="form-group">
 
           <legend class="visuallyhidden">{{ QuestionTitle }}</legend>
 
           <label class="block-label" for="radio-accident">
-            <input id="radio-accident" type="radio" name="claim-reason" value="accident">
+            <input id="radio-accident" type="radio" name="reason" value="accident">
             I have an illness or decease caused by my work.
           </label>
 
           <label class="block-label" for="radio-illness">
-            <input id="radio-illness" type="radio" name="claim-reason" value="illness">
+            <input id="radio-illness" type="radio" name="reason" value="illness">
             I have an inury or disability caused by an accident at work.
           </label>
 
           <label class="block-label" for="radio-other">
-            <input id="radio-other" type="radio" name="claim-reason" value="other">
+            <input id="radio-other" type="radio" name="reason" value="other">
             I have a desease or disability that was not caused by my work, at work or on a training course for work.
           </label>
 
