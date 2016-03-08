@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype - IIDB - Alpha 01
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{{ super() }}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">Can I get Industrial Injuries Disablement Benefit?</h1>
+      <p>You might be able to claim Industrial Injuries Disablement Benefit if you're ill or disabled.</p>
+
+      {% set QuestionTitle = "Which of the following statements best describes the reason you would like to claim?" %}
+      <h1 class="heading-medium">{{ QuestionTitle }}</h1>
+
+      <form action="/alpha-02/app/step0" method="post">
+        <fieldset class="form-group">
+
+          <legend class="visuallyhidden">{{ QuestionTitle }}</legend>
+
+          <label class="block-label" for="radio-accident">
+            <input id="radio-accident" type="radio" name="claim-reason" value="accident">
+            I have an illness or decease caused by my work.
+          </label>
+
+          <label class="block-label" for="radio-illness">
+            <input id="radio-illness" type="radio" name="claim-reason" value="illness">
+            I have an inury or disability caused by an accident at work.
+          </label>
+
+          <label class="block-label" for="radio-other">
+            <input id="radio-other" type="radio" name="claim-reason" value="other">
+            I have a desease or disability that was not caused by my work, at work or on a training course for work.
+          </label>
+
+        </fieldset>
+
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Start application" class="button button-start" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+      </form>
+
+      <p>
+        You will need your national insurance number in order to complete this application.
+      </p>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

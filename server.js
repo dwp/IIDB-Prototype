@@ -9,6 +9,7 @@ var path = require('path'),
     config = require(__dirname + '/app/config.js'),
     port = (process.env.PORT || config.port),
     utils = require(__dirname + '/lib/utils.js'),
+    filters = require(__dirname + '/lib/filters.js'),
 
 // Grab environment variables specified in Procfile or as Heroku config vars
     username = process.env.USERNAME,
@@ -24,7 +25,6 @@ var path = require('path'),
 if (env === 'production' && useAuth === 'true'){
     app.use(utils.basicAuth(username, password));
 }
-
 // Application settings
 app.set('view engine', 'html');
 app.set('views', [__dirname + '/app/views', __dirname + '/lib/']);
@@ -35,6 +35,20 @@ nunjucks.setup({
   noCache: true
 }, app);
 
+nunjucks.ready(function(nj) {
+  // iterate over filter items and add each to nunjucks
+  Object.keys(filters.items).forEach(function(filterName) {
+    nj.addFilter(filterName, filters.items[filterName]);
+  });
+});
+
+// Support for parsing data in POSTs
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.use(bodyParser.json());
+
 // Middleware to serve static assets
 app.use('/public', express.static(__dirname + '/public'));
 app.use('/public', express.static(__dirname + '/govuk_modules/govuk_template/assets'));
@@ -44,15 +58,10 @@ app.use('/public/images/icons', express.static(__dirname + '/govuk_modules/govuk
 // Elements refers to icon folder instead of images folder
 app.use(favicon(path.join(__dirname, 'govuk_modules', 'govuk_template', 'assets', 'images','favicon.ico')));
 
-// Support for parsing data in POSTs
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-
 // send assetPath to all views
 app.use(function (req, res, next) {
   res.locals.asset_path="/public/";
+  res.locals.bodyObj=req.body;
   next();
 });
 
