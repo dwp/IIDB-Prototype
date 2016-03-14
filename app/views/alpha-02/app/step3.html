@@ -13,34 +13,46 @@
 
       <h1 class="heading-large">Can I get Industrial Injuries Disablement Benefit?</h1>
 
-      <h3 class="heading-medium">Please enter {{ posted.firstname | d('Name here') }}'s Address details</h3>
+      <h3 class="heading-medium">Please enter {{ postData.firstname | d('Name here') }}'s Address details</h3>
 
-      <div class="form-group">
-        <label class="form-label" for="line1">Address Line 1</label>
-        <input class="form-control" id="line1" type="text" name="line1">
-      </div>
+      <form action="/alpha-02/app/step4" method="post">
 
-      <div class="form-group">
-        <label class="form-label" for="line2">Address Line 2</label>
-        <input class="form-control" id="line2" type="text" name="line2">
-      </div>
+        <input type="hidden" name="firstname" value="{{ postData.firstname }}">
 
-      <div class="form-group">
-        <label class="form-label" for="town">Town</label>
-        <input class="form-control" id="town" type="text" name="town">
-      </div>
+        <div class="form-group">
+          <label class="form-label" for="line1">Address Line 1</label>
+          <input class="form-control" id="line1" type="text" name="line1">
+        </div>
 
-      <div class="form-group">
-        <label class="form-label" for="county">County</label>
-        <input class="form-control" id="county" type="text" name="county">
-      </div>
+        <div class="form-group">
+          <label class="form-label" for="line2">Address Line 2</label>
+          <input class="form-control" id="line2" type="text" name="line2">
+        </div>
 
-      <div class="form-group">
-        <label class="form-label" for="postcode">Postcode</label>
-        <input class="form-control" id="postcode" type="text" name="postcode">
-      </div>
+        <div class="form-group">
+          <label class="form-label" for="town">Town</label>
+          <input class="form-control" id="town" type="text" name="town">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="county">County</label>
+          <input class="form-control" id="county" type="text" name="county">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="postcode">Postcode</label>
+          <input class="form-control" id="postcode" type="text" name="postcode">
+        </div>
+
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+      </form>
 
     </div>
+
   </div>
 </main>
 
