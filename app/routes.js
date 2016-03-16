@@ -30,5 +30,13 @@ router.get('/examples/over-18', function (req, res) {
   }
 });
 
+router.post('/alpha-03/app/step2', function(req,res){
+  if(req.body['employed'] === "Yes" && req.body.selfemployed === "No" && req.body.region === "Yes") {
+    res.render('alpha-03/app/step3');
+  } else {
+    res.redirect("/alpha-03/app/ineligible");
+  }
+});
+
 // add your routes here
 module.exports = router;
