@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  GOV.UK prototype - IIDB - Alpha 03 - Step 1
+  GOV.UK prototype - IIDB - Alpha 04 - Am I elligible to claim?
 {% endblock %}
 
 {% block content %}
@@ -15,7 +15,7 @@
 
 <h1 class="heading-xlarge">Apply for Industrial Injuries Disablement Benefit</h1>
 
-<h2 class="heading-large">You will be unable to claim</h2>
+<h2 class="heading-large">You may not be eligible</h2>
 
 <p>Based on what you have told us, you or the person you are claiming for will not be eligible to claim Industrial Injuries Disablement Benefit.</p>
 
@@ -28,7 +28,7 @@
 
       <h1 class="heading-large">Can I get Industrial Injuries Disablement Benefit?</h1>
 
-      <form action="/alpha-03/app/step2" method="post">
+      <form action="/alpha-04/app/medical_consent" method="post">
 
         {% set q1 = "Were you employed or on an approved employment training scheme or course when the accident occured?" %}
 
@@ -80,7 +80,7 @@
 
             </fieldset>
 
-            <div class="form-alert js-eligibility-alert hidden">
+            <div class="form-alert js-eligibility-alert js-hidden">
               <p>
                 If you were self employed at the time of the accident you will not be able to claim Industrial Injuries Disablement Benefit.
                 There is <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/eligibility">more information about eligibility on Gov.uk</a>.
@@ -89,15 +89,47 @@
 
         </fieldset>
 
-        <fieldset class="form-group js-eligibility-question js-hidden">
+{#         <fieldset class="form-group js-eligibility-question js-hidden">
 
-          {% set q3 = "Did the accident occur in England, Scotland or Wales? "%}
+          {% set q3 = "Have you reported the accident to your employer?" %}
 
           <h2 class="heading-medium">{{ q3 }}</h2>
 
             <fieldset class="inline">
 
               <legend class="visuallyhidden">{{ q3 }}</legend>
+
+              <label class="block-label" for="reported-yes">
+                <input id="reported-yes" type="radio" name="reported" value="Yes" class="js-eligibility-question-field" data-next="js-eligibility-question">
+                Yes
+              </label>
+
+              <label class="block-label" for="reported-no" data-target="reported-notice">
+                <input id="reported-no" type="radio" name="reported" value="No" class="js-eligibility-question-field">
+                No
+              </label>
+
+            </fieldset>
+
+            <div class="form-alert js-eligibility-alert js-hidden" id="reported-notice">
+
+              <p>You must have reported your accident to your employer when you worked for them in order to claim.</p>
+
+            </div>
+
+        </fieldset>
+
+#}
+
+        <fieldset class="form-group js-eligibility-question js-hidden">
+
+          {% set q4 = "Did the accident occur in England, Scotland or Wales? "%}
+
+          <h2 class="heading-medium">{{ q4 }}</h2>
+
+            <fieldset class="inline">
+
+              <legend class="visuallyhidden">{{ q4 }}</legend>
 
               <label class="block-label" for="region-yes">
                 <input id="region-yes" type="radio" name="region" value="Yes">
@@ -111,7 +143,7 @@
 
             </fieldset>
 
-            <div class="form-alert js-hidden" id="region-notice">
+            <div class="form-alert js-eligibility-alert js-hidden" id="region-notice">
 
               <p>Usually the accident has to have occurred in the UK.
                 But there are some exceptions to this rule.

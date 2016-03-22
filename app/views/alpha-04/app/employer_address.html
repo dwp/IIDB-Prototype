@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype - IIDB - Alpha 04 - Accident details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">Can I get Industrial Injuries Disablement Benefit?</h1>
+
+      <form action="/alpha-04/app/application_finished" method="post">
+
+        <h2 class="heading-medium">Employer's head-office</h2>
+
+        <p>Please provide the address of the head-office or personnel department.</p>
+
+        <div class="form-group" id="address-container">
+          <p class="form-label">Address</p>
+          <label class="form-label"><input type="text" class="form-control" id="company-address-line1"></label>
+          <label class="form-label"><input type="text" class="form-control" id="company-address-line2"></label>
+          <label class="form-label"><input type="text" class="form-control" id="company-address-line3"></label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="company-town">Town or City</label>
+          <input class="form-control" id="company-town" type="text" name="company-town">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="company-postcode">Postcode</label>
+          <input class="form-control" id="company-postcode" type="text" name="company-postcode">
+        </div>
+
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  GOV.UK prototype - IIDB - Alpha 03 - Step 4
+  GOV.UK prototype - IIDB - Alpha 04 - Step 4
 {% endblock %}
 
 {% block content %}
@@ -15,9 +15,9 @@
 
       <h3 class="heading-medium">Bank account details</h3>
 
-      <p>Industrial Injuries Disablement benefit can be paid into a UK bank account or the post office card account of the person claiming.</p>
+      <p>Industrial Injuries Disablement Benefit can be paid into a UK bank account or Post Office card account of the person claiming.</p>
 
-      <form action="/alpha-03/app/step5" method="post">
+      <form action="/alpha-04/app/accident_details" method="post">
 
         {% set q1 = "Do you have a UK bank account?" %}
 
@@ -39,7 +39,7 @@
               </label>
 
               <div class="form-group form-alert js-hidden notice" id="account-no-notice">
-                <h2 class="heading-small" style="margin:0;">You won't be paid Industrial Injuries Diablement Benefit without a UK bank account.</h2>
+                <h2 class="heading-small" style="margin:0;">You won't be paid Industrial Injuries Disablement Benefit without a UK bank account.</h2>
                 <p>You can provide bank account details later by contacting Industrial Injuries Disablement Benefit.</p>
               </div>
 

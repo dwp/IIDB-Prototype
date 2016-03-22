@@ -32,9 +32,27 @@ router.get('/examples/over-18', function (req, res) {
 
 router.post('/alpha-03/app/step2', function(req,res){
   if(req.body['employed'] === "Yes" && req.body.selfemployed === "No" && req.body.region === "Yes") {
-    res.render('alpha-03/app/step3');
+    res.render('alpha-03/app/medical_consent');
   } else {
     res.redirect("/alpha-03/app/ineligible");
+  }
+});
+
+// aahh! no time to think, quick for a meeting!
+router.post('/alpha-04/app/medical_consent', function(req,res){
+  if(req.body['employed'] === "Yes" && req.body.selfemployed === "No" && req.body.region === "Yes") {
+    res.render('alpha-04/app/medical_consent');
+  } else {
+    res.redirect("/alpha-04/app/ineligible");
+  }
+});
+
+// aahh! no time to think, quick for a meeting!
+router.post('/alpha-04/app/step2', function(req,res){
+  if(req.body['medical-consent'] === "Yes") {
+    res.render('alpha-04/app/step2');
+  } else {
+    res.redirect("/alpha-04/app/ineligible");
   }
 });
 

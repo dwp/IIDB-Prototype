@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  GOV.UK prototype - IIDB - Alpha 02
+  GOV.UK prototype - IIDB - Alpha 04
 {% endblock %}
 
 {% block content %}
@@ -19,7 +19,7 @@
       {% set QuestionTitle = "Which of the following statements best describes the reason you would like to claim?" %}
       <h1 class="heading-medium">{{ QuestionTitle }}</h1>
 
-      <form action="/alpha-02/app/step1" method="post">
+      <form action="/alpha-04/app/step1" method="post">
         <fieldset class="form-group">
 
           <legend class="visuallyhidden">{{ QuestionTitle }}</legend>
@@ -31,12 +31,12 @@
 
           <label class="block-label" for="radio-illness">
             <input id="radio-illness" type="radio" name="reason" value="illness">
-            I have an inury or disability caused by an accident at work.
+            I have an injury or disability caused by an accident at work.
           </label>
 
           <label class="block-label" for="radio-other">
             <input id="radio-other" type="radio" name="reason" value="other">
-            I have a disease or disability that was not caused by my work, at work or on a training course for work.
+            I have a disease or disability that was not caused by my work.
           </label>
 
         </fieldset>
@@ -48,7 +48,7 @@
 
       </form>
 
-      <h3 class="heading-medium">Things you will need</h3>
+      <h3 class="heading-medium">Things you will need to know</h3>
 
       <ul>
         <li>The National Insurance Number of the person claiming Industrial Injuries Disablement Benefit</li>

@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  GOV.UK prototype - IIDB - Alpha 03 - Step 4
+  GOV.UK prototype - IIDB - Alpha 04 - Medical Consent
 {% endblock %}
 
 {% block content %}
@@ -13,14 +13,23 @@
 
       <h1 class="heading-large">Can I get Industrial Injuries Disablement Benefit?</h1>
 
-      <h3 class="heading-medium">Professionals who know about your condition</h3>
+      <h2 class="heading-medium">Professionals who know about your condition</h2>
 
-      <p>It could help us get the information we need if we're able to contact professionals who will share details about the effects of your condition with us.</p>
-      <p>They could be your councsellor, teacher, key worker, doctor or anyone else who has information about the effects of your condition.</p>
+      <!-- <h2 class="heading-medium">Professionals who know about your condition</h2> -->
 
-      <form action="/alpha-03/app/step6" method="post">
+      <p>To help us gather the information we need, can we contact people that will share details about the effects of your condition with us? This could be:</p>
 
-        {% set q1 = "Do you agree to us contracting professionals who will share information about your condition with us?" %}
+      <ul class="list-bullet">
+        <li>A Doctor, Nurse or GP</li>
+        <li>Physiotherapist</li>
+        <li>Counsellor</li>
+        <li>Trade Union representative</li>
+      </ul>
+
+
+      <form action="/alpha-04/app/step2" method="post">
+
+        {% set q1 = "Do you agree to us contacting professionals that can provide us with more information?" %}
 
         <h2 class="heading-medium">{{ q1 }}</h2>
 
