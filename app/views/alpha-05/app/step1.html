@@ -13,24 +13,23 @@
 
 {% if postData.reason == "other" %}
 
-<h1 class="heading-xlarge">Apply for Industrial Injuries Disablement Benefit</h1>
+<h2 class="heading-large">You can't get Industrial Injuries benefit</h2>
 
-<h2 class="heading-large">You may not be eligible</h2>
+<p>To get Industrial Injuries Benefit you must have either:</p>
+<ul class='list-bullet'>
+  <li class='list-bullet'>an illness caused by your normal work duties or work environment</li>
+  <li class='list-bullet'>been injured while doing your job</li>
+</ul>
 
-<p>Based on what you have told us, you or the person you are claiming for will not be eligible to claim Industrial Injuries Disablement Benefit.</p>
+<p>Based on your answers you're not eligible.</p>
 
-<h3 class="heading-medium">More information</h3>
-
-<p>You can read more about <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/eligibility">eligibility for Industrial Injuries Disablement Benefit</a> on the Department for Work & Pensions website.</p>
-<p>There is also <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/further-information">further information about other benefits</a> that you may be able to claim.</p>
+<p>You may still be able to <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/">claim other benefits</a>.</p>
 
 {% else %}
-
-      <h1 class="heading-large">Can I get Industrial Injuries Disablement Benefit?</h1>
-
+  <h2 class="heading-large">About your accident</h2>
       <form action="/alpha-05/app/medical_consent" method="post">
 
-        {% set q1 = "Were you employed or on an approved employment training scheme or course when the accident occured?" %}
+        {% set q1 = "Were you at work or on work approved training when you had the accident?" %}
 
         <h2 class="heading-medium">{{ q1 }}</h2>
 
@@ -53,7 +52,7 @@
             </fieldset>
 
             <div class="form-alert js-eligibility-alert hidden">
-              <p>You need to have been employed at the time of the accident so you will not be able to claim Industrial Injuries Disablement Benefit. There is <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/eligibility">more information about eligibility on Gov.uk</a>.</p>
+              <p>You can't claim Industrial Injuries Disablement Benefit if you weren't at work or on training at the time of the accident. <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/eligibility">Find out more on GOV.UK</a>.</p>
             </div>
 
         </fieldset>
@@ -81,17 +80,14 @@
             </fieldset>
 
             <div class="form-alert js-eligibility-alert js-hidden">
-              <p>
-                If you were self employed at the time of the accident you will not be able to claim Industrial Injuries Disablement Benefit.
-                There is <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/eligibility">more information about eligibility on Gov.uk</a>.
-              </p>
+              <p>You can't claim Industrial Injuries Disablement Benefit if you were self-employed at the time of the accident. <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/eligibility">Find out more on GOV.UK</a>.</p>
             </div>
 
         </fieldset>
 
 {#         <fieldset class="form-group js-eligibility-question js-hidden">
 
-          {% set q3 = "Have you reported the accident to your employer?" %}
+          {% set q3 = "Did you tell your work about the accident?" %}
 
           <h2 class="heading-medium">{{ q3 }}</h2>
 
@@ -113,7 +109,7 @@
 
             <div class="form-alert js-eligibility-alert js-hidden" id="reported-notice">
 
-              <p>You must have reported your accident to your employer when you worked for them in order to claim.</p>
+              <p>You can't claim Industrial Injuries Disablement Benefit if you didn't report the accident to your work. <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/eligibility">Find out more on GOV.UK</a>.</p>
 
             </div>
 
@@ -123,7 +119,7 @@
 
         <fieldset class="form-group js-eligibility-question js-hidden">
 
-          {% set q4 = "Did the accident occur in England, Scotland or Wales? "%}
+          {% set q4 = "Were you in England, Scotland or Wales when you had your accident? "%}
 
           <h2 class="heading-medium">{{ q4 }}</h2>
 
@@ -145,19 +141,8 @@
 
             <div class="form-alert js-eligibility-alert js-hidden" id="region-notice">
 
-              <p>Usually the accident has to have occurred in the UK.
-                But there are some exceptions to this rule.
-                If you live outside the UK, or the accident occurred
-                outside the UK, please contact the International
-                Pension Centre for advice at:</p>
-
-              <p>International Pension Centre <br>
-                The Pension Service 11 <br>
-                Mail Handling Site A <br>
-                Wolverhampton <br>
-                WV98 1LW <br>
-                Phone 0191 21 87650 <br>
-                <a href="https://www.gov.uk/international-pension-centre">https://www.gov.uk/international-pension-centre</a>
+              <p><a href="https://www.gov.uk/international-pension-centre">Contact the International
+                Pension Centre</a> for advice on claiming for accidents that happened outside the UK.</p>
               </p>
 
             </div>
