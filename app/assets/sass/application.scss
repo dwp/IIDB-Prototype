@@ -39,15 +39,15 @@
 }
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to
-
 .form-alert {
-  background: $yellow;
-  padding: 15px;
-  :last-child {
-    margin-bottom: 0;
-  }
+    border-left-width: 10px;
+    background-color: lighten($yellow, 30%);
+    clear: both;
+    border-left-style: solid;
+    border-color: $yellow;
+    padding: 0.7894736842em;
+    margin-bottom: 0.7894736842em;
 }
-
 .form-label {
   margin-bottom: 5px;
 }
