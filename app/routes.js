@@ -1,59 +1,82 @@
 var express = require('express');
 var router = express.Router();
 var bodyparser = require('body-parser');
+var _ = require('lodash');
 
 router.get('/', function (req, res) {
   res.render('index');
 });
 
-// Example routes - feel free to delete these
-
-// Passing data into a page
-
-router.get('/examples/template-data', function (req, res) {
-
-  res.render('examples/template-data', { 'name' : 'Foo' });
-
+router.all(['/alpha-:version*'], function(req, res, next){
+  res.locals.proto = {
+    title: 'Industrial Injuries Diablement Benefit - Alpha',
+    version: req.params.version
+  }
+  next();
 });
 
-// Branching
+/**
+ * Handles some OLD routing in lieu of a proper solution.
+ * makes param for 'step' available to the view via locals
+ */
+router.all('/alpha-:version/app/:step', function(req,res,next){
 
-router.get('/examples/over-18', function (req, res) {
-  // get the answer from the query string (eg. ?over18=false)
-  var over18 = req.query.over18;
-  if (over18 == "false"){
-    // redirect to the relevant page
-    res.redirect("/examples/under-18");
-  } else {
-    // if over18 is any other value (or is missing) render the page requested
-    res.render('examples/over-18');
-  }
-});
+  var version = req.params.version || false,
+      step = req.params.step || false,
+      p = {
+        step: step
+      }
 
-router.post('/alpha-03/app/step2', function(req,res){
-  if(req.body['employed'] === "Yes" && req.body.selfemployed === "No" && req.body.region === "Yes") {
-    res.render('alpha-03/app/medical_consent');
-  } else {
-    res.redirect("/alpha-03/app/ineligible");
-  }
-});
+  // update local proto obj with useful data
+  res.locals.proto ? _.merge(res.locals.proto, p) : res.locals.proto = p;
 
-// aahh! no time to think, quick for a meeting!
-router.post('/alpha-04/app/medical_consent', function(req,res){
-  if(req.body['employed'] === "Yes" && req.body.selfemployed === "No" && req.body.region === "Yes") {
-    res.render('alpha-04/app/medical_consent');
-  } else {
-    res.redirect("/alpha-04/app/ineligible");
-  }
-});
+  // which prototype version
+  switch (version) {
 
-// aahh! no time to think, quick for a meeting!
-router.post('/alpha-04/app/step2', function(req,res){
-  if(req.body['medical-consent'] === "Yes") {
-    res.render('alpha-04/app/step2');
-  } else {
-    res.redirect("/alpha-04/app/ineligible");
+    // version alpha-03
+    case '03':
+      // which step
+      switch (step) {
+        case 'step2':
+          if(req.body['employed'] === true && req.body.selfemployed === false && req.body.region === true) {
+            next();
+          } else {
+            res.redirect('ineligible');
+          }
+          break;
+        default:
+          break;
+      }
+      break;
+
+    // version alpha-04 & 06
+    case '04':
+    case '05':
+    case '06':
+      switch (step) {
+        case 'medical_consent':
+          if(req.body['employed'] === true && req.body.selfemployed === false && req.body.region === true) {
+            next();
+          } else {
+            res.redirect('ineligible');
+          }
+          break;
+        case 'step2':
+          if(req.body['medical-consent'] === "Yes") {
+            next();
+          } else {
+            res.redirect('ineligible');
+          }
+          break;
+        default:
+          break;
+      }
+    default:
+      break;
   }
+
+  next();
+
 });
 
 // add your routes here
