@@ -62,18 +62,13 @@ app.use(favicon(path.join(__dirname, 'govuk_modules', 'govuk_template', 'assets'
 // send assetPath to all views
 app.use(function (req, res, next) {
   res.locals.asset_path="/public/";
-  res.locals.bodyObj=req.body;
   next();
 });
 
 // Add variables that are available in all views
 app.use(function (req, res, next) {
-  _.merge(res.locals,{
-    serviceName: config.serviceName,
-    cookieText: config.cookieText,
-    path: req.params[0],
-    postData: (req.body ? req.body : false)
-  });
+  res.locals.serviceName=config.serviceName;
+  res.locals.cookieText=config.cookieText;
   next();
 });
 

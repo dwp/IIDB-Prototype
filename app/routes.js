@@ -1,17 +1,55 @@
 var express = require('express');
 var router = express.Router();
 var bodyparser = require('body-parser');
+var fs = require('fs');
 var _ = require('lodash');
+var path = require('path');
+var glob = require('glob');
 
-router.get('/', function (req, res) {
-  res.render('index');
+var protoPaths = {
+  version: '/:phase/:version*',
+  step: '/:phase/:version*/app/:step',
+  appsGlob: '/views/**/app/index.html'
+}
+
+/**
+ * for all routes provide some standard context data
+ */
+router.use(function(req, res, next){
+  var versionURLs;
+
+  glob(__dirname + protoPaths.appsGlob, function(err, files){
+    versionURLs = files.map(function(item){
+      return item;
+    });
+  });
+
+  _.merge(res.locals,{
+    foo: 'bar',
+    postData: (req.body ? req.body : false),
+    proto: {
+      urls: versionURLs
+    }
+  });
+
+  next();
+
 });
 
-router.all(['/alpha-:version*'], function(req, res, next){
-  res.locals.proto = {
-    title: 'Industrial Injuries Diablement Benefit - Alpha',
-    version: req.params.version
-  }
+router.get('/', function (req, res) {
+    res.render('index');
+});
+
+/**
+ * handle 'phase' (alpha/beta,etc) and 'version' of prototypes by passing some
+ * enhanced context data (useful to nunjucks templates).
+ */
+router.all([protoPaths.version], function(req, res, next){
+  _.merge(res.locals.proto, {
+    title: 'Industrial Injuries Diablement Benefit - ' + req.params.phase,
+    version: req.params.version,
+    path: '/' + req.params.phase + '/' + req.params.version + '/app'
+  });
   next();
 });
 
@@ -19,7 +57,7 @@ router.all(['/alpha-:version*'], function(req, res, next){
  * Handles some OLD routing in lieu of a proper solution.
  * makes param for 'step' available to the view via locals
  */
-router.all('/alpha-:version/app/:step', function(req,res,next){
+router.all(protoPaths.step, function(req,res,next){
 
   var version = req.params.version || false,
       step = req.params.step || false,
@@ -38,7 +76,7 @@ router.all('/alpha-:version/app/:step', function(req,res,next){
       // which step
       switch (step) {
         case 'step2':
-          if(req.body['employed'] === true && req.body.selfemployed === false && req.body.region === true) {
+          if(req.body['employed'] === 'true' && req.body.selfemployed === 'false' && req.body.region === 'true') {
             next();
           } else {
             res.redirect('ineligible');
@@ -49,20 +87,20 @@ router.all('/alpha-:version/app/:step', function(req,res,next){
       }
       break;
 
-    // version alpha-04 & 06
+    // version alpha-04 - 06
     case '04':
     case '05':
     case '06':
       switch (step) {
         case 'medical_consent':
-          if(req.body['employed'] === true && req.body.selfemployed === false && req.body.region === true) {
+          if(req.body['employed'] === 'true' && req.body.selfemployed === 'false' && req.body.region === 'true') {
             next();
           } else {
             res.redirect('ineligible');
           }
           break;
         case 'step2':
-          if(req.body['medical-consent'] === "Yes") {
+          if(req.body['medical-consent'] === 'true') {
             next();
           } else {
             res.redirect('ineligible');
