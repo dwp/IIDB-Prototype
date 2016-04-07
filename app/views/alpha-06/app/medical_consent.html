@@ -11,7 +11,7 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-      <h1 class="heading-large">Contacting other people</h2>
+      <h1 class="heading-large">Contacting other people</h1>
 
       <!-- <h2 class="heading-medium">Professionals who know about your condition</h2> -->
 
@@ -23,40 +23,47 @@
         <li>trade union representatives</li>
       </ul>
       <p>To deal with your claim faster DWP may ask these people directly for information about you. You won't have to name people you don't want to be contacted, just those you do.</p>
-      <form action="/alpha-06/app/step2" method="post">
+      
+        <h2 class="heading-medium">Do you agree to DWP asking anyone you name in this form for information about you and your condition?</h2>
+        
+        <form action="/alpha-06/app/step2" method="post">
+                <fieldset class="inline">
 
-        {% set q1 = "Do you agree to DWP asking anyone you name in this form for information about you and your condition?" %}
+                  <legend class="visuallyhidden">Do you agree to DWP asking anyone you name in this form for information about you and your condition?</legend>
 
-        <h2 class="heading-medium">{{ q1 }}</h2>
+                  <div class="form-group">
 
-          <div class="form-group">
-            <fieldset class="inline">
+                    <label class="block-label" for="radio-indent-1">
+                      <input id="radio-indent-1" type="radio" name="radio-indent-group" value="Yes">
+                      Yes
+                    </label>
 
-              <legend class="visuallyhidden">{{ q1 }}</legend>
+                    <label class="block-label" data-target="medical-consent" for="radio-indent-2">
+                      <input id="radio-indent-2" type="radio" name="radio-indent-group" value="No">
+                      No
+                    </label>
 
-              <label class="block-label" for="account-yes">
-                <input id="account-yes" type="radio" name="medical-consent" value="Yes">
-                Yes
-              </label>
+                    <div class="panel panel-border-wide js-hidden" id="medical-consent">
+                       <p>Nobody whose details you give in this form will be contacted about your claim. This may mean your claim takes longer or you'll be asked to find the information yourself.</p>
+                    </div>
 
-              <label class="block-label" for="account-no" data-target="consent-no-notice">
-                <input id="account-no" type="radio" name="medical-consent" value="No">
-                No
-              </label>
+                  </div>
+                    <p>If you change your mind after sending your claim you can stop DWP contacting someone by phoning 0345 758 5433.</p>
+                </fieldset>
 
-              <div class="form-group form-alert js-hidden notice" id="consent-no-notice">
-                <p>Nobody whose details you give in this form will be contacted about your claim. This may mean your claim takes longer or you'll be asked to find the information yourself.</p>
-              </div>
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+         
+         
 
-            </fieldset>
-          </div>
-          <p>If you change your mind after sending your claim you can stop DWP contacting someone by phoning 0345 758 5433.</p>
-          <fieldset class="primary-nav form-group">
-            <legend class="visuallyhidden">Form Navigation</legend>
-            <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-          </fieldset>
-
-      </form>
+              </form>
+  
+        
+        
+        
+     
 
     </div>
   </div>
