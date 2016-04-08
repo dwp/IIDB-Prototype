@@ -1,14 +1,14 @@
-var express = require('express');
-var router = express.Router();
-var bodyparser = require('body-parser');
-var fs = require('fs');
-var _ = require('lodash');
-var path = require('path');
-var glob = require('globby');
+var express = require('express'),
+  router = express.Router(),
+  bodyparser = require('body-parser'),
+  fs = require('fs'),
+  _ = require('lodash'),
+  path = require('path'),
+  glob = require('globby');
 
 var protoPaths = {
   version: '/:phase/:version*',                     // e.g '/alpha/alpha-01/'
-  step: '/:phase/:version*/app/:step',              // e.g '/alpha/alpha-01/app/address'
+  step: '/:phase/:version*/app/:step',              // e.g '/alpha{{ proto.path }}/address'
   appsGlob: [
     __dirname + '/views/**/index.html',
     '!' + __dirname + '/views/index.html',

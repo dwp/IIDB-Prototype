@@ -15,7 +15,7 @@
 
       <h3 class="heading-medium">Please enter {{ postData.firstname | d('Name here') }}'s Address details</h3>
 
-      <form action="/alpha-02/app/step4" method="post">
+      <form action="{{ proto.path }}/step4" method="post">
 
         <input type="hidden" name="firstname" value="{{ postData.firstname }}">
 

@@ -24,7 +24,7 @@
       {% set QuestionTitle = "Why are you claiming?" %}
       <h1 class="heading-medium">{{ QuestionTitle }}</h1>
       <p>Pick the choice that best fits your situation.</p>
-      <form action="/alpha-06/app/step1" method="post">
+      <form action="{{ proto.path }}/step1" method="post">
         <fieldset class="form-group">
 
           <legend class="visuallyhidden">{{ QuestionTitle }}</legend>

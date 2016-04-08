@@ -27,7 +27,7 @@
 
 {% else %}
   <h2 class="heading-large">About your accident</h2>
-      <form action="/alpha-06/app/medical_consent" method="post">
+      <form action="{{ proto.path }}/medical_consent" method="post">
 
         {% set q1 = "Were you at work or on work approved training when you had the accident?" %}
 
