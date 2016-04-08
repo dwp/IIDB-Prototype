@@ -7,8 +7,8 @@ var path = require('path');
 var glob = require('globby');
 
 var protoPaths = {
-  version: '/:phase/:version*',
-  step: '/:phase/:version*/app/:step',
+  version: '/:phase/:version*',                     // e.g '/alpha/alpha-01/'
+  step: '/:phase/:version*/app/:step',              // e.g '/alpha/alpha-01/app/address'
   appsGlob: [
     __dirname + '/views/**/index.html',
     '!' + __dirname + '/views/index.html',
@@ -25,29 +25,31 @@ router.use(function(req, res, next){
 
   // protoypes config obj
   var proto = {
-    versions: []
+    versions: [],
+    stages: ['alpha']
   }
 
-  // using glob pattern for set folder structure to grep url and title
+  // using glob pattern for the predefined folder structure to grep url and title
   glob.sync(protoPaths.appsGlob).forEach(function(p){
     var sp = p.split('/');
-    var computedPath = _.join(_.slice(sp,(_.indexOf(sp, 'views')+1)),'/');
+    var computedPath = _.join( _.slice( sp, ( _.indexOf(sp, 'views') +1 ) ), '/' );
     var title = computedPath.split('/')[1];
     proto.versions.push({ url: computedPath, title: (title[0].toUpperCase() + title.slice(1)).replace("-", ' ') });
   });
 
   // update locals so this data is accessible
   _.merge(res.locals,{
-    foo: 'bar',
     postData: (req.body ? req.body : false),
     proto: proto
   });
 
-  // on you go son
   next();
 
 });
 
+/**
+ * Just render the route index file
+ */
 router.get('/', function (req, res) {
     res.render('index');
 });

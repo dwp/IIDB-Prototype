@@ -8,8 +8,6 @@
 
 <main id="content" role="main">
 
-  {{ proto | log | safe }}
-
   {{ super() }}
 
   <div class="grid-row">
@@ -17,19 +15,28 @@
 
       <h1 class="heading-large">IIDB Prototypes</h1>
 
-      <p>The following is a directory of Industrial Injuries Disablement Benefit digital service Prototypes by version.</p>
+      <p>The following is a directory of Industrial Injuries Disablement Benefit digital service Prototypes list by 'phase' and 'iteration'.</p>
 
-      <h2 class="heading-medium">Alpha</h2>
+      {% for stage in proto.stages %}
 
-      <ul class="list list-bullet">
+        <h2 class="heading-medium">{{ stage | upper }}</h2>
+
         {% if proto.versions %}
-          {% for version in proto.versions %}
-            <li><a href="{{ version.url }}">{{ version.title }}</a></li>
-          {% endfor %}
+
+          <ul class="list list-bullet">
+              {% for version in proto.versions %}
+                {% if version.url | contains(stage) %}<li><a href="{{ version.url }}">{{ version.title }}</a></li>{% endif %}
+              {% endfor %}
+    			</ul>
+
         {% else %}
 
+          <p>There are no iterations for this stage yet</p>
+
         {% endif %}
-			</ul>
+
+      {% endfor %}
+
 
     </div>
   </div>
