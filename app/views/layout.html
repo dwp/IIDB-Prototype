@@ -18,6 +18,8 @@
   with-proposition
 {% endblock %}
 
+{% block body_classes %}{{ proto.version if proto.version }}{% endblock %}
+
 {% block after_header %}{% endblock %}
 
 {% block body_end %}

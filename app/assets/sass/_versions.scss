@@ -1,0 +1,33 @@
+// some CSS locked down to early versions of the prototype prior to
+// allowing styling on a per version basis.
+@import 'early_versions';
+
+// ------------------------------------------------------------------
+// EXAMPLE OF VERSION VIA BODY CLASS (LEAVE INTACT)
+// ------------------------------------------------------------------
+// within this single sass file you can write version specifc CSS
+// each version is automatically name-spaced via on the bodyclass
+// see the example below
+// ------------------------------------------------------------------
+
+.alpha {
+
+  // this will write out '.alpha-06'
+  &-06 {
+
+    // this will write out '.alpha-06 .example-selector'
+    // so you know for sure it is version specific
+    .example-selector {
+      &:before {
+        content: 'demo';
+        display: block;
+      }
+    }
+
+  }
+
+}
+
+// ------------------------------------------------------------------
+// CUSTOM VERSION CSS BELOW THIS LINE
+// ------------------------------------------------------------------

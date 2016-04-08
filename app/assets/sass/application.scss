@@ -4,51 +4,5 @@
 
 // Take a look at patterns.scss to see which files are imported.
 @import 'patterns';
-
-// If you need to create a page as part of your journey, but without GOV.UK branding
-// See localhost:3000/examples/unbranded/
-.unbranded {
-  background: $white;
-  // Use the universal selector and !important to *ALWAYS OVERRIDE* GDS Transport
-  * {
-    font-family: Arial !important;
-  }
-  // Remove GOV.UK footer styles
-  #footer {
-    border: 0;
-    background: $white;
-  }
-}
-
-// Related items
-// (These styles will be moved to GOV.UK elements, duplicating here for now.)
-.govuk-related-items {
-  margin-top: $gutter;
-  border-top: 10px solid $govuk-blue;
-  padding-top: 5px;
-
-  .heading-medium {
-    margin-top: 0.3em;
-    margin-bottom: 0.5em
-  }
-
-  li {
-    margin-bottom: 10px;
-    list-style-type: none;
-  }
-}
-
-// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to
-.form-alert {
-    border-left-width: 10px;
-    background-color: lighten($yellow, 30%);
-    clear: both;
-    border-left-style: solid;
-    border-color: $yellow;
-    padding: 0.7894736842em;
-    margin-bottom: 0.7894736842em;
-}
-
-.form-label {
-  margin-bottom: 5px;
-}
+@import 'bundled';
+@import 'versions';
