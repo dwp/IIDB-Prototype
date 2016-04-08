@@ -8,7 +8,7 @@
 
 <main id="content" role="main">
 
-  {{ foo | log | safe }}
+  {{ proto | log | safe }}
 
   {{ super() }}
 
@@ -22,12 +22,13 @@
       <h2 class="heading-medium">Alpha</h2>
 
       <ul class="list list-bullet">
-        <li><a href="/alpha-06">Alpha 06</a></li>
-        <li><a href="/alpha-05">Alpha 05</a></li>
-        <li><a href="/alpha-04">Alpha 04</a></li>
-        <li><a href="/alpha-03">Alpha 03</a></li>
-        <li><a href="/alpha-02">Alpha 02</a></li>
-				<li><a href="/alpha-01">Alpha 01</a></li>
+        {% if proto.versions %}
+          {% for version in proto.versions %}
+            <li><a href="{{ version.url }}">{{ version.title }}</a></li>
+          {% endfor %}
+        {% else %}
+
+        {% endif %}
 			</ul>
 
     </div>

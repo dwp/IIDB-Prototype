@@ -4,34 +4,46 @@ var bodyparser = require('body-parser');
 var fs = require('fs');
 var _ = require('lodash');
 var path = require('path');
-var glob = require('glob');
+var glob = require('globby');
 
 var protoPaths = {
   version: '/:phase/:version*',
   step: '/:phase/:version*/app/:step',
-  appsGlob: '/views/**/app/index.html'
+  appsGlob: [
+    __dirname + '/views/**/index.html',
+    '!' + __dirname + '/views/index.html',
+    '!' + __dirname + '/views/**/app/index.html',
+    '!' + __dirname + 'views/includes/**/.*'
+  ]
 }
 
 /**
  * for all routes provide some standard context data
+ * TODO: refactor (this is brittle) but works for the Interaction Designer.
  */
 router.use(function(req, res, next){
-  var versionURLs;
 
-  glob(__dirname + protoPaths.appsGlob, function(err, files){
-    versionURLs = files.map(function(item){
-      return item;
-    });
+  // protoypes config obj
+  var proto = {
+    versions: []
+  }
+
+  // using glob pattern for set folder structure to grep url and title
+  glob.sync(protoPaths.appsGlob).forEach(function(p){
+    var sp = p.split('/');
+    var computedPath = _.join(_.slice(sp,(_.indexOf(sp, 'views')+1)),'/');
+    var title = computedPath.split('/')[1];
+    proto.versions.push({ url: computedPath, title: (title[0].toUpperCase() + title.slice(1)).replace("-", ' ') });
   });
 
+  // update locals so this data is accessible
   _.merge(res.locals,{
     foo: 'bar',
     postData: (req.body ? req.body : false),
-    proto: {
-      urls: versionURLs
-    }
+    proto: proto
   });
 
+  // on you go son
   next();
 
 });
