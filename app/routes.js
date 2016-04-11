@@ -86,7 +86,7 @@ router.all(protoPaths.step, function(req,res,next){
   switch (version) {
 
     // version alpha-03
-    case '03':
+    case 'alpha-03':
       // which step
       switch (step) {
         case 'step2':
@@ -102,9 +102,9 @@ router.all(protoPaths.step, function(req,res,next){
       break;
 
     // version alpha-04 - 06
-    case '04':
-    case '05':
-    case '06':
+    case 'alpha-04':
+    case 'alpha-05':
+    case 'alpha-06':
       switch (step) {
         case 'medical_consent':
           if(req.body['employed'] === 'true' && req.body.selfemployed === 'false' && req.body.region === 'true') {
