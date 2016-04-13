@@ -1,7 +1,7 @@
-{% extends "./proto_layout.html" %}
+{% extends "layout.html" %}
 
 {% block page_title %}
-    {{ proto.title + ' ' + proto.version }} - Accident details
+  GOV.UK prototype - IIDB - Alpha 06 - Accident details
 {% endblock %}
 
 {% block content %}
@@ -11,15 +11,14 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-      <form action="{{ proto.path }}/application_finished" method="post">
+
+      <form action="/alpha-06/app/accident_details" method="post">
 
         <h2 class="heading-large">Your employer's details</h2>
-
         <div class="form-group">
           <label class="form-label" for="company-name">Employer's name</label>
           <input class="form-control" id="company-name" type="text" name="company-name">
         </div>
-
         <div class="form-group" id="address-container">
           <p class="form-label">Address</p>
           <label class="form-label"><input type="text" class="form-control" id="company-address-line1"></label>

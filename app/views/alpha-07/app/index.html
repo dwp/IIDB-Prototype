@@ -1,7 +1,7 @@
-{% extends "./proto_layout.html" %}
+{% extends "layout.html" %}
 
 {% block page_title %}
-    {{ proto.title + ' ' + proto.version }}
+  GOV.UK prototype - IIDB - Alpha 06
 {% endblock %}
 
 {% block content %}
@@ -17,14 +17,14 @@
       <p>You can claim Industrial Injuries Disablement Benefit if you're ill or disabled and it was caused by your work.</p>
       <p>To claim you'll need:</p>
         <ul class='list-bullet'>
-  <li class='list-bullet'>your National Insurance number</li>
-  <li class='list-bullet'>details of your employer at the time of your accident</li>
-</ul>
+          <li class='list-bullet'>your National Insurance number</li>
+          <li class='list-bullet'>details of your employer at the time of your accident</li>
+        </ul>
 
       {% set QuestionTitle = "Why are you claiming?" %}
       <h1 class="heading-medium">{{ QuestionTitle }}</h1>
       <p>Pick the choice that best fits your situation.</p>
-      <form action="{{ proto.path }}/step1" method="post">
+      <form action="/alpha-06/app/location" method="post">
         <fieldset class="form-group">
 
           <legend class="visuallyhidden">{{ QuestionTitle }}</legend>
