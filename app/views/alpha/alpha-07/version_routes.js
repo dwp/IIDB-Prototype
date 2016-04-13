@@ -1,17 +1,34 @@
 module.exports = function(router, config) {
   router.all(config.protoPaths.step, function(req,res,next){
 
-    var currentPage = req.params.step,
+    var requestedPage = req.params.step,
         postData = req.body || {};
 
-    // if current page == consent do stuff
-    if(currentPage == 'consent') {
+    switch(requestedPage) {
 
-        if(postData['radio group'] == 'Every Thirteen') {
-          console.log("every thirteen was chosen");
-        } else {
+      case 'location':
+        if(postData['reason'] == 'other') {
           res.redirect('ineligible');
         }
+      break;
+
+      case 'working':
+        if(postData['withinregion'] == 'false') {
+          res.redirect('ineligible');
+        }
+      break;
+
+      case 'self_employed':
+        if(postData['atwork'] == 'false') {
+          res.redirect('ineligible');
+        }
+      break;
+
+      case 'self_employed_class1':
+        if(postData['selfemployed'] == 'false') {
+          res.redirect('employer_details');
+        }
+      break;
 
     }
 

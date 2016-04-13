@@ -8,7 +8,7 @@ var express = require('express'),
 
 var protoPaths = {
   version: '/:phase/:version*',                     // e.g '/alpha/alpha-01/'
-  step: '/:phase/:version*/app/:step',              // e.g '/alpha{{ proto.path }}/address'
+  step: '/:phase/:version*/app/:step',              // e.g '/alpha/alpha-01/app/address'
   appsGlob: [
     __dirname + '/views/**/index.html',
     '!' + __dirname + '/views/index.html',
@@ -29,14 +29,14 @@ var getVersionName = function(path) {
   }
 }
 
+// loop each version route file and bring it in passing router and some config
 glob.sync(protoPaths.routesGlob).forEach(function(p){
-  var v = getVersionName(p);
-  require('./views/' + v.computedPath)(router, { version: v.title, protoPaths: protoPaths });
+  require(p)(router, { protoPaths: protoPaths });
 });
 
 /**
  * for all routes provide some standard context data
- * TODO: refactor (this is brittle) but works for the Interaction Designer.
+ * this is brittle but works for the Interaction Designer.
  */
 router.use(function(req, res, next){
 
