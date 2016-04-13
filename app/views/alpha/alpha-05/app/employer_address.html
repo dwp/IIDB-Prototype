@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype - IIDB - Alpha 05 - Accident details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+      <form action="{{ proto.path }}/application_finished" method="post">
+
+        <h2 class="heading-medium">Your employer's details</h2>
+        <div class="form-group">
+          <label class="form-label" for="company-name">Employer's name</label>
+          <input class="form-control" id="company-name" type="text" name="company-name">
+        </div>
+        <div class="form-group" id="address-container">
+          <p class="form-label">Address</p>
+          <label class="form-label"><input type="text" class="form-control" id="company-address-line1"></label>
+          <label class="form-label"><input type="text" class="form-control" id="company-address-line2"></label>
+          <label class="form-label"><input type="text" class="form-control" id="company-address-line3"></label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="company-town">Town or city</label>
+          <input class="form-control" id="company-town" type="text" name="company-town">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="company-postcode">Postcode</label>
+          <input class="form-control" id="company-postcode" type="text" name="company-postcode">
+        </div>
+
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

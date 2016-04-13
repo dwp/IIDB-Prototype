@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype - IIDB - Alpha 05 - Step 3
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+      <h3 class="heading-medium">Your details</h3>
+
+      <form action="{{ proto.path }}/step4" method="post">
+
+        <div class="form-group" id="address-container">
+          <p class="form-label">Address</p>
+          <label class="form-label"><input type="text" class="form-control" id="address-line1"></label>
+          <label class="form-label"><input type="text" class="form-control" id="address-line2"></label>
+          <label class="form-label"><input type="text" class="form-control" id="address-line3"></label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="town">Town or City</label>
+          <input class="form-control" id="town" type="text" name="town">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="postcode">Postcode</label>
+          <input class="form-control" id="postcode" type="text" name="postcode">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="mobile">Mobile</label>
+          <input class="form-control" id="mobile" type="number" name="mobile">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="phone">Other number</label>
+          <input class="form-control" id="phone" type="number" name="phone">
+        </div>
+
+{#
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-control" id="email" type="email" name="email">
+        </div>
+#}
+
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+      </form>
+
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

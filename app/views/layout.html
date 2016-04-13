@@ -1,3 +1,5 @@
+{% import "macros/generic.html" as helpers %}
+
 {% extends "govuk_template.html" %}
 
 {% block head %}
@@ -16,6 +18,8 @@
   with-proposition
 {% endblock %}
 
+{% block body_classes %}{{ proto.version if proto.version }}{% endblock %}
+
 {% block after_header %}{% endblock %}
 
 {% block body_end %}
@@ -27,7 +31,6 @@
 {% endblock %}
 
 {% block footer_support_links %}
-{{ path | log | safe }}
   <div class="footer-detail">
     <p class="font-xsmall"><a href="https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter" target="privacyLink">Privacy Policy</a></p>
     <p class="font-xsmall">Made in Stockport by Department for Work &amp; Pensions</p>

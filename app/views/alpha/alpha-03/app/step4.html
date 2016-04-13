@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype - IIDB - Alpha 03 - Step 4
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">Can I get Industrial Injuries Disablement Benefit?</h1>
+
+      <h3 class="heading-medium">Bank account details</h3>
+
+      <p>Industrial Injuries Disablement benefit can be paid into a UK bank account or the post office card account of the person claiming.</p>
+
+      <form action="{{ proto.path }}/step5" method="post">
+
+        {% set q1 = "Do you have a UK bank account?" %}
+
+        <h2 class="heading-medium">{{ q1 }}</h2>
+
+          <div class="form-group">
+            <fieldset class="inline">
+
+              <legend class="visuallyhidden">{{ q1 }}</legend>
+
+              <label class="block-label" for="account-yes" data-target="account-yes-fields">
+                <input id="account-yes" type="radio" name="has-account" value="Yes">
+                Yes
+              </label>
+
+              <label class="block-label" for="account-no" data-target="account-no-notice">
+                <input id="account-no" type="radio" name="has-account" value="No">
+                No
+              </label>
+
+              <div class="form-group form-alert js-hidden notice" id="account-no-notice">
+                <h2 class="heading-small" style="margin:0;">You won't be paid Industrial Injuries Diablement Benefit without a UK bank account.</h2>
+                <p>You can provide bank account details later by contacting Industrial Injuries Disablement Benefit.</p>
+              </div>
+
+            </fieldset>
+          </div>
+
+          <fieldset id="account-yes-fields" class="js-hidden">
+
+            <div class="form-group">
+              <label for="account-name" class="form-label">Account holder name</label>
+              <input type="text" class="form-control" name="account-name" id="account-name">
+            </div>
+
+            <div class="form-group">
+              <label for="bank-name" class="form-label">Name of bank or building society</label>
+              <input type="text" class="form-control" name="bank-name" id="bank-name">
+            </div>
+
+            <div class="form-group">
+              <label for="sort-code" class="form-label">Sort Code</label>
+              <input type="text" class="form-control" name="sort-code" id="sort-code">
+            </div>
+
+            <div class="form-group">
+              <label for="account-number" class="form-label">Account number</label>
+              <input type="text" class="form-control" name="account-number" id="account-number">
+              <details style="margin-top: 10px;">
+                <summary><span class="summary">Post Office Card Account Numbers</span></summary>
+                <div class="panel panel-border-narrow">
+                  <p>If you're using a post office card account, you're account number isn't the number on your card.</p>
+                  <p>You can find the correct number on any you've received from the post office about your account.</p>
+                </div>
+              </details>
+            </div>
+
+            <div class="form-group">
+              <label for="society-roll-number" class="form-label">Building Society Roll Number (optional)</label>
+              <input type="text" class="form-control" name="society-roll-number" id="society-roll-number">
+            </div>
+
+          </fieldset>
+
+          <fieldset class="primary-nav form-group">
+            <legend class="visuallyhidden">Form Navigation</legend>
+            <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          </fieldset>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

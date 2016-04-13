@@ -1,0 +1,186 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype - IIDB - Alpha 01 - Step 1
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">Can I get Industrial Injuries Disablement Benefit?</h1>
+
+      <form action="{{ proto.path }}/step2" method="post">
+
+        {% set q1 = "Were you employed or on an approved employment training scheme or course when the accident occured?" %}
+
+        <h2 class="heading-medium">{{ q1 }}</h2>
+
+        <fieldset class="form-group js-eligibility-question">
+
+            <fieldset class="inline">
+
+              <legend class="visuallyhidden">{{ q1 }}</legend>
+
+              <label class="block-label" for="employed-yes">
+                <input id="employed-yes" type="radio" name="employed" value="true" class="js-eligibility-question-field" data-next="js-eligibility-question">
+                Yes
+              </label>
+
+              <label class="block-label" for="employed-no">
+                <input id="employed-no" type="radio" name="employed" value="false" class="js-eligibility-question-field">
+                No
+              </label>
+
+            </fieldset>
+
+            <div class="form-alert js-eligibility-alert hidden">
+              <p>You need to have been employed at the time of the accident so you will not be able to claim Industrial Injuries Disablement Benefit. There is <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/eligibility">more information about eligibility on Gov.uk</a>.</p>
+            </div>
+
+        </fieldset>
+
+        <fieldset class="form-group js-eligibility-question js-hidden">
+
+          {% set q2 = "Were you self employment at the time of the accident? "%}
+
+          <h2 class="heading-medium">{{ q2 }}</h2>
+
+            <fieldset class="inline">
+
+              <legend class="visuallyhidden">{{ q2 }}</legend>
+
+              <label class="block-label" for="self-employed-yes">
+                <input id="self-employed-yes" type="radio" name="selfemployed" value="true" class="js-eligibility-question-field">
+                Yes
+              </label>
+
+              <label class="block-label" for="self-employed-no">
+                <input id="self-employed-no" type="radio" name="selfemployed" value="false" class="js-eligibility-question-field" data-next="js-eligibility-question">
+                No
+              </label>
+
+            </fieldset>
+
+            <div class="form-alert js-eligibility-alert hidden">
+              <p>
+                If you were self employed at the time of the accident you will not be able to claim Industrial Injuries Disablement Benefit.
+                There is <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/eligibility">more information about eligibility on Gov.uk</a>.
+              </p>
+            </div>
+
+        </fieldset>
+
+        <fieldset class="form-group js-eligibility-question js-hidden">
+
+          {% set q3 = "Did the accident occur in England, Scotland or Wales? "%}
+
+          <h2 class="heading-medium">{{ q3 }}</h2>
+
+            <fieldset class="inline">
+
+              <legend class="visuallyhidden">{{ q3 }}</legend>
+
+              <label class="block-label" for="region-yes">
+                <input id="region-yes" type="radio" name="region" value="true" class="js-eligibility-question-field" data-next="primary-nav">
+                Yes
+              </label>
+
+              <label class="block-label" for="region-no">
+                <input id="region-no" type="radio" name="region" value="false" class="js-eligibility-question-field">
+                No
+              </label>
+
+            </fieldset>
+
+            <div class="form-alert js-eligibility-alert hidden">
+
+              <p>Usually the accident has to have occurred in the UK.
+                But there are some exceptions to this rule.
+                If you live outside the UK, or the accident occurred
+                outside the UK, please contact the International
+                Pension Centre for advice at:</p>
+
+              <p>International Pension Centre <br>
+                The Pension Service 11 <br>
+                Mail Handling Site A <br>
+                Wolverhampton <br>
+                WV98 1LW <br>
+                Phone 0191 21 87650 <br>
+                <a href="https://www.gov.uk/international-pension-centre">https://www.gov.uk/international-pension-centre</a>
+              </p>
+
+            </div>
+
+        </fieldset>
+
+        <fieldset class="primary-nav form-group js-eligibility-question js-hidden">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+  <script type="text/javascript">
+
+    var pageScript = {
+
+      config: {
+        questionSel: 'js-eligibility-question',
+        questionFieldSel: 'js-eligibility-question-field',
+        questionAlertSel: 'js-eligibility-alert',
+        questionNextAttr: 'data-next',
+        hiddenClass: 'js-hidden hidden'
+      },
+
+      handleQuestions: function() {
+
+        var self = this,
+            $questions = $('.' + this.config.questionSel);
+
+        $questions.each(function(index, elm){
+
+          var $thisQuestion = $(elm),
+              $questionAlert = $thisQuestion.find('.' + this.config.questionAlertSel),
+              $questionFields = $thisQuestion.find('.' + this.config.questionFieldSel);
+
+          $questionFields.on('change click', function(e){
+            var $thisField = $(e.currentTarget);
+
+            if ($thisField.is('[' + this.config.questionNextAttr + ']')){
+              $thisQuestion.next('.' + $thisField.attr(this.config.questionNextAttr)).removeClass(this.config.hiddenClass);
+              $questionAlert.addClass(this.config.hiddenClass);
+            } else {
+              $thisQuestion.nextAll('.' + this.config.questionSel).addClass(this.config.hiddenClass);
+              $questionAlert.removeClass(this.config.hiddenClass);
+            }
+
+          }.bind(this));
+
+        }.bind(this));
+
+      },
+      init: function() {
+        this.handleQuestions();
+      }
+    }
+
+    $(function(){
+      pageScript.init();
+    });
+
+  </script>
+{% endblock %}

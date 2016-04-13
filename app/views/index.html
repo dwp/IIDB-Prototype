@@ -15,18 +15,28 @@
 
       <h1 class="heading-large">IIDB Prototypes</h1>
 
-      <p>The following is a directory of Industrial Injuries Disablement Benefit digital service Prototypes by version.</p>
+      <p>The following is a directory of Industrial Injuries Disablement Benefit digital service Prototypes list by 'phase' and 'iteration'.</p>
 
-      <h2 class="heading-medium">Alpha</h2>
+      {% for stage in proto.stages %}
 
-      <ul class="list list-bullet">
-        <li><a href="/alpha-06">Alpha 06</a></li>
-        <li><a href="/alpha-05">Alpha 05</a></li>
-        <li><a href="/alpha-04">Alpha 04</a></li>
-        <li><a href="/alpha-03">Alpha 03</a></li>
-        <li><a href="/alpha-02">Alpha 02</a></li>
-				<li><a href="/alpha-01">Alpha 01</a></li>
-			</ul>
+        <h2 class="heading-medium">{{ stage | upper }}</h2>
+
+        {% if proto.versions %}
+
+          <ul class="list list-bullet">
+              {% for version in proto.versions %}
+                {% if version.url | contains(stage) %}<li><a href="{{ version.url }}">{{ version.title }}</a></li>{% endif %}
+              {% endfor %}
+    			</ul>
+
+        {% else %}
+
+          <p>There are no iterations for this stage yet</p>
+
+        {% endif %}
+
+      {% endfor %}
+
 
     </div>
   </div>
