@@ -68,6 +68,45 @@ router.all([protoPaths.version], function(req, res, next){
 });
 
 /**
+ * This will require a specific routes file for each version of the prototype
+ * hopefully making maintainance a little easier
+ */
+router.use(protoPaths.step, function(req,res,next){
+
+  var version = req.params.version,
+      phase = req.params.phase,
+      step = req.params.step,
+      routeFilePath = __dirname + '/views/' + phase + '/' + version + '/version_routes.js';
+
+      // temp until I put this in properly.
+      // TODO: replace with node module / something final
+      function existsSync(filePath){
+        try {
+          fs.statSync(filePath);
+        } catch(err){
+          if (err.code == 'ENOENT') return false;
+        }
+        return true;
+      }
+
+  if(version && phase && existsSync(routeFilePath)) {
+
+    var versionRouter = require(routeFilePath)({
+      path: protoPaths.step,
+      phase: phase,
+      version: version,
+      step: step
+    });
+
+    router.use(versionRouter);
+
+  }
+
+  next();
+
+});
+
+/**
  * Handles some OLD routing in lieu of a proper solution.
  * makes param for 'step' available to the view via locals
  */
