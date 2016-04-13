@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype - IIDB - Alpha 06 - Step 4
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+     <h1 class="heading-large">Your payment frequency</h1>
+        
+          <p>
+            Tell us how you want Industrial Injuries Disablement Benefit to be paid
+        </p>
+        
+        
+        
+           
+            
+            <form action="/alpha-06/app/consent" method="post">
+                           
+                <fieldset class="form-group">
+                    
+                    <legend class="visuallyhidden">Tell us how you want Industrial Injuries Disablement Benefit to be paid.</legend>
+                    
+                    <label class="block-label" for="Every_Four">
+                        <input id="Every_Four" type="radio" name="radio group" value="Every Four">
+                        Every 4 weeks in arrears
+                    </label>
+                    
+                    <label class="block-label" for="Every_Thirteen">
+                        <input id="Every_Thirteen" type="radio" name="radio group" value="Every Thirteen">
+                        Every 13 weeks in arrears
+                    </label>
+
+                    <label class="block-label" for="Every_Week">
+                        <input id="Every_Week" type="radio" name="radio group" value="Every Week">
+                        Every week in advance
+                    </label>
+                        
+                </fieldset>
+
+                  
+                
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+                    
+                    
+              </form>
+
+   
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

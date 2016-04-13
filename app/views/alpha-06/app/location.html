@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  GOV.UK prototype - IIDB - Alpha 06 - Step 4
+  GOV.UK prototype - IIDB - Alpha 06 - Am I elligible to claim?
 {% endblock %}
 
 {% block content %}
@@ -11,16 +11,15 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-     <h1 class="heading-large">Bank account details</h1>
         
-          <span>The benefit can only be paid into a UK bank account or Post Office card account.</span>
+         <h2 class="heading-large">About your accident</h2>
         
-            <h1 class="heading-medium">Do you have a UK bank account?</h1>
+          <h1 class="heading-medium">Were you in England, Scotland or Wales when you had your accident?</h1>
             
-            <form action="/alpha-06/app/accident_details" method="post">
+            <form action="/alpha-06/app/working" method="post">
                 <fieldset class="inline">
 
-                  <legend class="visuallyhidden">Do you have a UK bank account?</legend>
+                  <legend class="visuallyhidden">Were you in England, Scotland or Wales when you had your accident?</legend>
 
                   <div class="form-group">
 
@@ -29,14 +28,15 @@
                       Yes
                     </label>
 
-                    <label class="block-label" data-target="bank-account" for="radio-indent-2">
+                    <label class="block-label" data-target="about-accident" for="radio-indent-2">
                       <input id="radio-indent-2" type="radio" name="radio-indent-group" value="No">
                       No
                     </label>
 
-                    <div class="panel panel-border-wide js-hidden" id="bank-account">
-                      <h2 class="heading-small" style="margin:0;">You can't be paid Industrial Injuries Disablement Benefit without a UK bank account.</h2>
-                <p>You can still claim and give your bank account details later, once you have a decision.</p>
+                    <div class="panel panel-border-wide js-hidden" id="about-accident">
+                      <p><a  rel="external" href="https://www.gov.uk/international-pension-centre">Contact the International
+                Pension Centre</a> for advice on claiming for accidents that happened outside the UK.
+                        </p>
                     </div>
 
                   </div>
@@ -49,9 +49,10 @@
                     </fieldset>
               </form>
 
-   
-    </div>
-  </div>
+
+
+</div>
+</div>
 </main>
 
 {% endblock %}
@@ -60,4 +61,5 @@
 
   {{ super() }}
 
+  
 {% endblock %}

@@ -10,35 +10,38 @@
 
   <div class="grid-row">
     <div class="column-two-thirds">
+        
+        <h2 class="heading-large">About Employment</h2>
+        
+          <h1 class="heading-medium">Were you self-employed at the time of the accident?</h1>
+            <span class="form-hint">Self-employment includes:</span>
+            <ul class="list-bullet">
 
-        
-         <h2 class="heading-large">About your accident</h2>
-        
-          <h1 class="heading-medium">Were you in England, Scotland or Wales when you had your accident?</h1>
+                <li>registed with the HMRC as self-employed</li>
+                <li> working for yourself as a sole trader or in a partnership.</li>
+
+            </ul>
+        <p>If you unsure whether you were self employed, you can use the <a target="_blank" href="https://www.gov.uk/guidance/employment-status-indicator">employment status indicator tool</a></p>
             
-            <form action="/alpha-06/app/medical_consent" method="post">
+            <form action="/alpha-06/app/self_employed_class1" method="post">
                 <fieldset class="inline">
 
-                  <legend class="visuallyhidden">Were you in England, Scotland or Wales when you had your accident?</legend>
+                  <legend class="visuallyhidden">Were you self-employed at the time of the accident?</legend>
+
 
                   <div class="form-group">
 
-                    <label class="block-label" for="radio-indent-1">
+                    <label class="block-label" data-target="about-accident" for="radio-indent-1">
                       <input id="radio-indent-1" type="radio" name="radio-indent-group" value="Yes">
                       Yes
                     </label>
 
-                    <label class="block-label" data-target="about-accident" for="radio-indent-2">
+                    <label class="block-label" for="radio-indent-2">
                       <input id="radio-indent-2" type="radio" name="radio-indent-group" value="No">
                       No
                     </label>
 
-                    <div class="panel panel-border-wide js-hidden" id="about-accident">
-                      <p><a  rel="external" href="https://www.gov.uk/international-pension-centre">Contact the International
-                Pension Centre</a> for advice on claiming for accidents that happened outside the UK.
-                        </p>
-                    </div>
-
+                    
                   </div>
 
                 </fieldset>
@@ -48,7 +51,6 @@
                       <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                     </fieldset>
               </form>
-
 
 
 </div>
@@ -61,5 +63,6 @@
 
   {{ super() }}
 
-  
+ 
 {% endblock %}
+
