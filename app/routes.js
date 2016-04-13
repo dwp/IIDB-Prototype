@@ -14,8 +14,25 @@ var protoPaths = {
     '!' + __dirname + '/views/index.html',
     '!' + __dirname + '/views/**/app/index.html',
     '!' + __dirname + 'views/includes/**/.*'
+  ],
+  routesGlob: [
+    __dirname + '/views/**/version_routes.js'
   ]
 }
+
+var getVersionName = function(path) {
+  var sp = path.split('/');
+  var computedPath = _.join( _.slice( sp, ( _.indexOf(sp, 'views') +1 ) ), '/' );
+  return {
+    computedPath: computedPath,
+    title: computedPath.split('/')[1],
+  }
+}
+
+glob.sync(protoPaths.routesGlob).forEach(function(p){
+  var v = getVersionName(p);
+  require('./views/' + v.computedPath)(router, { version: v.title, protoPaths: protoPaths });
+});
 
 /**
  * for all routes provide some standard context data
@@ -31,10 +48,8 @@ router.use(function(req, res, next){
 
   // using glob pattern for the predefined folder structure to grep url and title
   glob.sync(protoPaths.appsGlob).forEach(function(p){
-    var sp = p.split('/');
-    var computedPath = _.join( _.slice( sp, ( _.indexOf(sp, 'views') +1 ) ), '/' );
-    var title = computedPath.split('/')[1];
-    proto.versions.push({ url: computedPath, title: (title[0].toUpperCase() + title.slice(1)).replace("-", ' ') });
+    var v = getVersionName(p);
+    proto.versions.push({ url: v.computedPath, title: (v.title[0].toUpperCase() + v.title.slice(1)).replace("-", ' ') });
   });
 
   // update locals so this data is accessible
@@ -65,45 +80,6 @@ router.all([protoPaths.version], function(req, res, next){
     path: '/' + req.params.phase + '/' + req.params.version + '/app'
   });
   next();
-});
-
-/**
- * This will require a specific routes file for each version of the prototype
- * hopefully making maintainance a little easier
- */
-router.use(protoPaths.step, function(req,res,next){
-
-  var version = req.params.version,
-      phase = req.params.phase,
-      step = req.params.step,
-      routeFilePath = __dirname + '/views/' + phase + '/' + version + '/version_routes.js';
-
-      // temp until I put this in properly.
-      // TODO: replace with node module / something final
-      function existsSync(filePath){
-        try {
-          fs.statSync(filePath);
-        } catch(err){
-          if (err.code == 'ENOENT') return false;
-        }
-        return true;
-      }
-
-  if(version && phase && existsSync(routeFilePath)) {
-
-    var versionRouter = require(routeFilePath)({
-      path: protoPaths.step,
-      phase: phase,
-      version: version,
-      step: step
-    });
-
-    router.use(versionRouter);
-
-  }
-
-  next();
-
 });
 
 /**
