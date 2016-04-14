@@ -30,6 +30,12 @@ module.exports = function(router, config) {
         }
       break;
 
+      case 'employer_details':
+        if(postData['payclass1'] == 'false') {
+          res.redirect('ineligible');
+        }
+      break;
+
     }
 
     next();
