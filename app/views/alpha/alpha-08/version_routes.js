@@ -18,23 +18,19 @@ module.exports = function(router, config) {
         }
       break;
 
-      case 'self_employed':
-        if(postData['atwork'] == 'false') {
-          res.redirect('ineligible');
-        }
-      break;
 
-      case 'self_employed_class1':
-        if(postData['selfemployed'] == 'false') {
+            
+     // Self employed checker         
+      case 'self_checker':
+        if(postData['selfchecker'] == 'true') {
+          res.redirect('self_employed_class1');
+        }
+        else if (postData['selfchecker'] == 'false') {
           res.redirect('employer_details');
-        }
-      break;
-
-      case 'employer_details':
-        if(postData['payclass1'] == 'false') {
-          res.redirect('ineligible');
-        }
-      break;
+        } 
+      break;         
+            
+            
 
     }
 

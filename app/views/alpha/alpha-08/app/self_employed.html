@@ -11,19 +11,9 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-        <h2 class="heading-large">About Employment</h2>
-
-          <h1 class="heading-medium">Were you self-employed at the time of the accident?</h1>
-            <span class="form-hint">Self-employment includes:</span>
-            <ul class="list-bullet">
-
-                <li>registed with the HMRC as self-employed</li>
-                <li> working for yourself as a sole trader or in a partnership.</li>
-
-            </ul>
-        <p>If you unsure whether you were self employed, you can use the <a target="_blank" href="https://www.gov.uk/guidance/employment-status-indicator">employment status indicator tool</a></p>
-
-            <form action="{{ proto.path }}/self_employed_class1" method="post">
+          <h1 class="heading-large">Were you self-employed at the time of the accident?</h1>
+           
+            <form action="{{ proto.path }}/self_checker" method="post">
                 <fieldset class="inline">
 
                   <legend class="visuallyhidden">Were you self-employed at the time of the accident?</legend>
@@ -31,7 +21,7 @@
 
                   <div class="form-group">
 
-                    <label class="block-label" data-target="about-accident" for="radio-indent-1">
+                     <label class="block-label" for="radio-indent-1">
                       <input id="radio-indent-1" type="radio" name="selfemployed" value="true">
                       Yes
                     </label>
@@ -39,6 +29,11 @@
                     <label class="block-label" for="radio-indent-2">
                       <input id="radio-indent-2" type="radio" name="selfemployed" value="false">
                       No
+                    </label>
+                      
+                    <label class="block-label" for="radio-indent-3">
+                      <input id="radio-indent-3" type="radio" name="selfemployed" value="unsure">
+                      Unsure
                     </label>
 
 
