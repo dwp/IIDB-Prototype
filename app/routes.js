@@ -4,34 +4,15 @@ var express = require('express'),
   fs = require('fs'),
   _ = require('lodash'),
   path = require('path'),
-  glob = require('globby');
+  glob = require('globby'),
+  protoPaths = require(__dirname + '/config').protoPaths,
+  utils = require(__dirname + '/utils');
 
-var protoPaths = {
-  version: '/:phase/:version*',                     // e.g '/alpha/alpha-01/'
-  step: '/:phase/:version*/app/:step',              // e.g '/alpha/alpha-01/app/address'
-  appsGlob: [
-    __dirname + '/views/**/index.html',
-    '!' + __dirname + '/views/index.html',
-    '!' + __dirname + '/views/**/app/index.html',
-    '!' + __dirname + 'views/includes/**/.*'
-  ],
-  routesGlob: [
-    __dirname + '/views/**/version_routes.js'
-  ]
-}
-
-var getVersionName = function(path) {
-  var sp = path.split('/');
-  var computedPath = _.join( _.slice( sp, ( _.indexOf(sp, 'views') +1 ) ), '/' );
-  return {
-    computedPath: computedPath,
-    title: computedPath.split('/')[1],
-  }
-}
-
-// loop each version route file and bring it in passing router and some config
+/**
+ * loop each version route file and bring it in passing router and some config
+ */
 glob.sync(protoPaths.routesGlob).forEach(function(p){
-  require(p)(router, { protoPaths: protoPaths });
+  require(p)(router, { protoPaths: protoPaths, route: protoPaths.step.replace(':version*', utils.getVersionName(p).title) });
 });
 
 /**
@@ -41,14 +22,11 @@ glob.sync(protoPaths.routesGlob).forEach(function(p){
 router.use(function(req, res, next){
 
   // protoypes config obj
-  var proto = {
-    versions: [],
-    stages: ['alpha']
-  }
+  var proto = { versions: [], stages: ['alpha'] }
 
   // using glob pattern for the predefined folder structure to grep url and title
   glob.sync(protoPaths.appsGlob).forEach(function(p){
-    var v = getVersionName(p);
+    var v = utils.getVersionName(p);
     proto.versions.push({ url: v.computedPath, title: (v.title[0].toUpperCase() + v.title.slice(1)).replace("-", ' ') });
   });
 
@@ -83,8 +61,8 @@ router.all([protoPaths.version], function(req, res, next){
 });
 
 /**
- * Handles some OLD routing in lieu of a proper solution.
- * makes param for 'step' available to the view via locals
+ * Handles some OLD legacy routing makes param for 'step' available
+ * to the view via locals
  */
 router.all(protoPaths.step, function(req,res,next){
 

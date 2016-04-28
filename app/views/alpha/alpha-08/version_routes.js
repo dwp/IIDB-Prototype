@@ -1,5 +1,5 @@
 module.exports = function(router, config) {
-  router.all(config.protoPaths.step, function(req,res,next){
+  router.all(config.route, function(req,res,next){
 
     var requestedPage = req.params.step,
         postData = req.body || {};
@@ -18,19 +18,17 @@ module.exports = function(router, config) {
         }
       break;
 
-
-            
-     // Self employed checker         
+     // Self employed checker
       case 'self_checker':
         if(postData['selfchecker'] == 'true') {
           res.redirect('self_employed_class1');
         }
         else if (postData['selfchecker'] == 'false') {
           res.redirect('employer_details');
-        } 
-      break;         
-            
-            
+        }
+      break;
+
+
 
     }
 
