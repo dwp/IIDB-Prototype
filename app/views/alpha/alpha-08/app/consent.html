@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Declaration and consent
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">Declaration</h1>
+
+
+
+      <form action="{{ proto.path }}/application_finished" method="post">
+
+
+        <h2 class="heading-medium">Do you agree to us contacting professionals that can provide us with more information?</h2>
+
+          <div>
+            <fieldset class="inline form-group">
+
+              <legend class="visuallyhidden">Do you agree to us contacting professionals that can provide us with more information?</legend>
+
+              <label class="block-label" for="account-yes">
+                <input id="account-yes" type="radio" name="medical-consent" value="Yes">
+                Yes
+              </label>
+
+              <label class="block-label" for="account-no" data-target="consent-no-notice">
+                <input id="account-no" type="radio" name="medical-consent" value="No">
+                No
+              </label>
+            </fieldset>
+              
+             <div class="panel panel-border-narrow">
+              <span>You agree:</span>
+
+            <ul class="list list-bullet">
+                <li>the information you've given is complete and correct as far as you know</li>
+                <li>you'll pay back any money you've been overpaid if you're asked to</li>
+                <li>you'll report changes to your circumstances promptly</li>
+            </ul>
+
+            <h2 class="heading-medium">Contacting other people</h2>
+
+            <span>To complete your application the Industial Injuries Disablement Benefit team may ask the following for more information:</span>
+
+            <ul class="list list-bullet">
+                <li>your employer</li>
+                <li>people who know about your condition, eg doctors, physiotherapists or counsellors who treated you</li>
+            </ul>
+
+            <p>If you don't agree to this contact, or change your mind about it, then call 0345 758 5433 at any time after sending your application.</p>
+
+          </div>
+ 
+              
+<!--
+              <div class="panel panel-border-narrow js-hidden" id="consent-no-notice">
+                <p>Select the people you do not want us to contact.</p>
+                <p>Restricted contact with professionals can mean we don't have all the information we need when making a decision about your claim.</p>
+
+                  <fieldset>
+
+                      <legend class="visuallyhidden">Provide us with details of the people you do not want us to contact.</legend>
+
+                      <label class="block-label" for="Employer">
+                        <input id="Employer" name="Employer" type="checkbox" value="Employer">
+                        Employer - Steve Smith
+                      </label>
+                      <label class="block-label" for="Doctor">
+                        <input id="Doctor" name="Doctor" type="checkbox" value="Doctor">
+                        Doctor - Darren Jones
+                      </label>
+                      <label class="block-label" for="Physiotherapist">
+                        <input id="Physiotherapist" name="Physiotherapist" type="checkbox" value="Physiotherapist">
+                        Physiotherapist - Sally Peg
+                      </label>
+                      <label class="block-label" for="Counsellors">
+                        <input id="Counsellors" name="Counsellors" type="checkbox" value="counsellors">
+                        Counsellors - Andrew Bond
+                      </label>
+
+                </fieldset>
+
+              </div>
+-->
+
+          </div>
+
+
+
+
+          
+
+
+
+
+
+
+
+        <div class="text form-group">
+            <div class="notice">
+              <i class="icon icon-important">
+                <span class="visuallyhidden">Warning</span>
+              </i>
+              <strong class="bold-small">
+                You could be prosecuted or have to pay a penalty if you deliberately give wrong or incomplete information, don't report changes or don't repay any money you owe when asked.
+              </strong>
+            </div>
+        </div>
+
+        <p class="text form-group">
+            Report a change in circumstances by <a href="https://www.gov.uk/contact">contacting the Industrial Injuries Disablement Benefits team</a>.
+        </p>
+
+
+
+
+
+           <fieldset class="primary-nav form-group">
+              <legend class="visuallyhidden">Form Navigation</legend>
+
+              <input type="submit" value="I agree - send my application" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            </fieldset>
+        </form>
+
+
+
+
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

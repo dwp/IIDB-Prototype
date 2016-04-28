@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Step 4
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+     <h1 class="heading-large">Your bank details</h1>
+
+          <p>
+            Industrial Injuries Disablement Benefit can be paid into a UK bank account, either your own or someone else's, or your own Post Office card account.
+            You're responsible for repaying any overpayments, even if the money is paid into someone else's account.
+        </p>
+
+
+
+            <form action="{{ proto.path }}/payment_frequency" method="post" autocomplete="off">
+
+                <fieldset>
+
+                    <legend class="visuallyhidden">Enter bank details</legend>
+
+                    <div class="form-group">
+                        <label class="form-label" for="AC_Name">Account holder name</label>
+                        <input type="text" class="form-control" id="AC_Name" name="AC_Name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="Bank_Name">Name of bank or building society</label>
+                        <input type="text" class="form-control" id="Bank_Name" name="Bank_Name">
+                    </div>
+
+
+                    <div class="form-group">
+                    <label class="form-label">Sort code</label>
+
+                        <div class="form-date form-group">
+
+                          <div class="form-group form-group-day">
+                            <label for="sort_1"></label>
+                            <input class="form-control" id="sort_1" name="sort_1" type="number" min="0" max="31">
+                          </div>
+
+                          <div class="form-group form-group-month">
+                            <label for="sort_2"></label>
+                            <input class="form-control" id="sort_2" name="sort_2" type="number" min="0" max="12">
+                          </div>
+
+                          <div class="form-group form-group-year">
+                            <label for="sort_3"></label>
+                            <input class="form-control" id="sort_3" name="sort_3" type="number" min="0" max="2016">
+                          </div>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="AC_Number">Account number</label>
+                        <input type="number" class="form-control" id="AC_Number" name="AC_Number">
+                    </div>
+
+
+                    <details class="form-group" role="group" open="">
+
+                        <summary role="button" aria-controls="details-content-0" aria-expanded="false">
+                            <span class="summary">Post Office card account numbers</span>
+                        </summary>
+
+                        <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+                          <p class="form-hint">
+                            If you're using a Post Office card account, your account number isn't the number on your card.
+                              Find the correct number on any letter you've had from the Post Office about your account.</p>
+                        </div>
+
+                    </details>
+
+                    <div class="form-group">
+                        <label class="form-label" for="Build_Society">Building society roll or reference number (optional)</label>
+                        <input type="text" class="form-control" id="Build_Society" name="Build_Society">
+                    </div>
+
+                </fieldset>
+
+
+
+
+
+
+
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+
+
+              </form>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}
