@@ -1,1 +1,1 @@
-#Industrial Injuries Disablement Benefit - Prototype
+#Industrial Injuries Disablement Benefit - Prototype.
