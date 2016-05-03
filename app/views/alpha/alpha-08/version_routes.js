@@ -41,7 +41,7 @@ module.exports = function(router, config) {
         } 
       break;
             
-    // Self class 1 page          
+    // Self class 1 page //
       case 'employer_details':
         if(postData['payclass1"'] == 'true') {
           res.redirect('employer_details');
