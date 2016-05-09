@@ -44,8 +44,22 @@ module.exports = function(router, config) {
           res.redirect('ineligible');
         } 
       break;
+            
+        // Medical Professionals //
+        case 'medical_names':
+        if(postData['seek_medical'] == 'false') {
+          res.redirect('accident_workrelated');
+        }
+      break;
 
 
+            
+        // Did you report the accident to the employer //
+        case 'report_got':
+        if(postData['report_employer'] == 'false') {
+          res.redirect('employer_details');
+        }
+      break;
 
     }
 

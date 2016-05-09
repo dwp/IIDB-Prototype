@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  {{ proto.title + ' ' + proto.version }} - Your details continued
+  {{ proto.title + ' ' + proto.version }} - Medical details
 {% endblock %}
 
 {% block content %}
@@ -12,9 +12,9 @@
     <div class="column-two-thirds">
 
 
-      <h3 class="heading-large">Your personal details continued</h3>
+      <h3 class="heading-large">Tell us the address of the XXXXXX you visited</h3>
 
-      <form action="{{ proto.path }}/bank_details" method="post" autocomplete="off">
+      <form action="{{ proto.path }}/accident_workrelated" method="post" autocomplete="off">
 
         <div class="form-group" id="address-container">
           <p class="form-label">Address</p>
@@ -34,21 +34,10 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="mobile">Mobile</label>
-          <input class="form-control" id="mobile" type="number" name="mobile">
+          <label class="form-label" for="telephone">Telephone</label>
+          <input class="form-control" id="telephone" type="number" name="telephone">
         </div>
 
-        <div class="form-group">
-          <label class="form-label" for="phone">Other number</label>
-          <input class="form-control" id="phone" type="number" name="phone">
-        </div>
-
-{#
-        <div class="form-group">
-          <label class="form-label" for="email">Email</label>
-          <input class="form-control" id="email" type="email" name="email">
-        </div>
-#}
 
         <fieldset class="primary-nav form-group">
           <legend class="visuallyhidden">Form Navigation</legend>

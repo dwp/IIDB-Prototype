@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  {{ proto.title + ' ' + proto.version }} - Step 2
+  {{ proto.title + ' ' + proto.version }} - Your details
 {% endblock %}
 
 {% block content %}
@@ -11,7 +11,7 @@
   <div class="grid-row">
     <div class="column-two-thirds">
 
-      <h3 class="heading-large">Your personal details</h3>
+      <h1 class="heading-large">Your personal details</h1>
       <p>This means the person who's claiming the benefit. Don't put your own details if you're applying on behalf of someone.</p>
       <form action="{{ proto.path }}/your_details_cont" method="post" autocomplete="off">
 

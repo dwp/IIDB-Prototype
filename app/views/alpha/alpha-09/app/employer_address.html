@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  {{ proto.title + ' ' + proto.version }} - Accident details
+  {{ proto.title + ' ' + proto.version }} - Employer details
 {% endblock %}
 
 {% block content %}
@@ -12,7 +12,7 @@
     <div class="column-two-thirds">
 
 
-      <form action="{{ proto.path }}/accident_details" method="post" autocomplete="off">
+      <form action="{{ proto.path }}/your_details" method="post" autocomplete="off">
 
         <h2 class="heading-large">Your employer's details at the time of the accident</h2>
         <div class="form-group">

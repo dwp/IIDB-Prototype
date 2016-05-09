@@ -12,12 +12,12 @@
     
      <div class="grid-row">
         <div class="column-two-thirds">
-            <h1 class="heading-large">Tell us which parts of your body are affected and what the symptoms are</h1>
-            <span><p>This information will then be confirmed with a medial professional at a later date</p></span>
+            <h1 class="heading-large">Which parts of your body were affected by the accident</h1>
+            <span><p>List your injuries. This information will then be confirmed with a medical professional at a later date.</p></span>
          </div>
     </div>
     
-<form action="{{ proto.path }}/accident_workrelated" method="post" autocomplete="off">
+<form action="{{ proto.path }}/medical_help" method="post" autocomplete="off">
       <div class="grid-row">
         <div class="form-group-compound list-item-wrapper">
           <h2 class="heading-medium">Injury</h2>
@@ -26,7 +26,7 @@
             <div class="column-one-third no-padding">
               <div class="form-group list-item">
                 <label class="form-label" for="field-1">
-                  Part or region
+                  Part of body affected
                 </label>
                 <input type="text" class="form-control" id="field-1" name="field-1">
               </div>
@@ -35,7 +35,7 @@
             <div class="column-one-third no-padding">
               <div class="form-group list-item">
                 <label class="form-label" for="field-2">
-                 Symtoms
+                 Problem in brief
                 </label>
                 <input type="text" class="form-control" id="field-2" name="field-2">
               </div>
