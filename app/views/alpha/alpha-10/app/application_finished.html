@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Application Complete
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="govuk-box-highlight">
+    <h2 class="bold-large">
+      Application complete
+    </h2>
+    <p>
+      <strong class="heading-medium">Your claim's been sent</strong>
+    </p>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <p>You don't need to do anything else. You'll be asked for more information if it's needed.</p>
+        <p>Otherwise you'll get your decision within 11 weeks.</p>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

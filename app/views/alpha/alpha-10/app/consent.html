@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Declaration
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">Declaration</h1>
+
+
+
+      <form action="{{ proto.path }}/application_finished" method="post">
+          
+                
+            <div class="">
+              <h2 class="heading-medium">You agree:</h2>
+
+            <ul class="list list-bullet">
+                <li>the information you've given is complete and correct as far as you know</li>
+                <li>you'll pay back any money you've been overpaid if you're asked to</li>
+                <li>you'll report changes to your circumstances promptly</li>
+            </ul>
+
+          </div>
+
+          <div>
+            <fieldset class="inline form-group">
+
+              <legend class="visuallyhidden">Declaration</legend>
+
+              <label class="block-label" for="account-yes">
+                <input id="account-yes" type="radio" name="medical-consent" value="Yes">
+                Yes
+              </label>
+
+              <label class="block-label" for="account-no" data-target="no-declaration">
+                <input id="account-no" type="radio" name="medical-consent" value="No">
+                No
+              </label>
+            </fieldset>
+        
+                <div class="panel panel-border-wide js-hidden" id="no-declaration">
+                  <p>
+                      If you do not agree to the declaration, your claim can not be processed. 
+                    </p>
+                    <p>
+                      You may report a change in circumstances at any future point by <a href="https://www.gov.uk/contact">contacting the Industrial Injuries Disablement Benefits team</a>.
+                    </p>
+                </div>
+              
+
+          </div>
+
+
+
+
+          
+
+
+
+
+
+
+
+        <div class="text form-group">
+            <div class="notice">
+              <i class="icon icon-important">
+                <span class="visuallyhidden">Warning</span>
+              </i>
+              <strong class="bold-small">
+                You could be prosecuted or have to pay a penalty if you deliberately give wrong or incomplete information, don't report changes or don't repay any money you owe when asked.
+              </strong>
+            </div>
+        </div>
+
+      
+
+
+
+
+
+           <fieldset class="primary-nav form-group">
+              <legend class="visuallyhidden">Form Navigation</legend>
+
+              <input type="submit" value="I agree - send my application" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            </fieldset>
+        </form>
+
+
+
+
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

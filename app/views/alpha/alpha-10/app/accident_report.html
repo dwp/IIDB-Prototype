@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - The accident and your employer
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+     <h1 class="heading-large">Did you report the accident to your employer?</h1>
+
+        
+
+       <form action="{{ proto.path }}/report_got" method="post">
+                <fieldset class="inline">
+
+                  <legend class="visuallyhidden">Did you report the accident to your employer?</legend>
+
+                  <div class="form-group">
+
+                    <label class="block-label" for="radio-indent-1">
+                      <input id="radio-indent-1" type="radio" name="report_employer" value="true">
+                      Yes
+                    </label>
+
+                    <label class="block-label" for="radio-indent-2">
+                      <input id="radio-indent-2" type="radio" name="report_employer" value="false">
+                      No
+                    </label>
+
+                  </div>
+
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+
+       
+      
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}
