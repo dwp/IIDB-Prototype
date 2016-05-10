@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Am I elligible to claim?
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+          <h1 class="heading-large">Find out if you were self-employed at the time of the accident?</h1>
+            <span class="form-hint">Self-employment includes:</span>
+            <ul class="list-bullet">
+
+                <li>registered with HMRC as self-employed</li>
+                <li> working for yourself as a sole trader or in a partnership.</li>
+
+            </ul>
+        <p>If you unsure whether you were self employed, you can use the <a target="_blank" href="https://www.gov.uk/guidance/employment-status-indicator">employment status indicator tool</a></p>
+        
+        
+
+          <h1 class="heading-medium">Were you self-employed at the time of the accident?</h1>
+          
+          
+            <form action="{{ proto.path }}/elligible_consent" method="post">
+                <fieldset class="inline">
+
+                  <legend class="visuallyhidden">Were you self-employed at the time of the accident?</legend>
+
+
+                  <div class="form-group">
+
+                    <label class="block-label" for="radio-indent-1">
+                      <input id="radio-indent-1" type="radio" name="selfchecker" value="true">
+                      Yes
+                    </label>
+
+                    <label class="block-label" for="radio-indent-2">
+                      <input id="radio-indent-2" type="radio" name="selfchecker" value="false">
+                      No
+                    </label>
+
+
+                  </div>
+
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+
+
+</div>
+</div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+
+{% endblock %}

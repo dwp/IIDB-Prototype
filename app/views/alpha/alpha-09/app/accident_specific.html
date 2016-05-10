@@ -1,0 +1,223 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Accident - how you were affected
+{% endblock %}
+
+{% block content %}
+
+
+
+<main id="content" role="main">
+    
+     <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-large">Which parts of your body were affected by the accident</h1>
+            <span><p>List your injuries. This information will then be confirmed with a medical professional at a later date.</p></span>
+         </div>
+    </div>
+    
+<form action="{{ proto.path }}/medical_help" method="post" autocomplete="off">
+      <div class="grid-row">
+        <div class="form-group-compound list-item-wrapper">
+          <h2 class="heading-medium">Injury</h2>
+
+          <fieldset>
+            <div class="column-one-third no-padding">
+              <div class="form-group list-item">
+                <label class="form-label" for="field-1">
+                  Part of body affected
+                </label>
+                <input type="text" class="form-control" id="field-1" name="field-1">
+              </div>
+            </div>
+
+            <div class="column-one-third no-padding">
+              <div class="form-group list-item">
+                <label class="form-label" for="field-2">
+                 Problem in brief
+                </label>
+                <input type="text" class="form-control" id="field-2" name="field-2">
+              </div>
+            </div>
+
+            <div class="column-one-third no-padding">
+              <div class="list-item">
+              </div>
+            </div>
+          </fieldset>
+
+          <hr />
+        </div>
+      </div>
+
+      <div class="grid-row">
+        <div class="column-two-thirds">
+          <div class="form-group">
+            <button id="add-button" class="button button-add-another">Add another</button>
+          </div>
+        </div>
+      </div>
+    
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+    
+    
+    </form>    
+    
+    
+    
+    
+    
+    
+    
+    
+<!--
+  <div class="grid-row">
+    <div class="column-two-thirds">
+     
+
+            <form action="{{ proto.path }}/accident_workrelated" method="post" autocomplete="off">
+                <fieldset>
+                    
+                <h1 class="heading-large">Select the parts of your body directly effected by the accident</h1>
+                <span class="form-hint">Select all that apply</span>
+
+                  <legend class="visuallyhidden">Select the parts of your body directly effected by the accident</legend>
+
+                    <div class="form-group">
+                                
+                        <label class="block-label" for="Part1">
+                            <input id="bpart-1" name="body1" type="checkbox" value="Left leg">
+                            Left leg
+                        </label>
+                        <label class="block-label" for="Part2">
+                            <input id="bpart-1" name="body2" type="checkbox" value="Right Leg">
+                            Right Leg
+                        </label>
+                        <label class="block-label" for="Part3">
+                            <input id="bpart-1" name="body3" type="checkbox" value="Left Arm">
+                            Left Arm
+                        </label>
+                        <label class="block-label" for="Part4">
+                            <input id="bpart-1" name="body3" type="checkbox" value="Right Arm">
+                            Right Arm
+                        </label>
+                    </div>
+                    
+                 
+                  
+                    
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+
+
+
+
+
+</div>
+</div>-->
+    
+    
+    
+    
+    
+    
+    
+</main>
+
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+<script>
+              
+    $(document).on('click', '.button-add-another', function (e) {
+      var beforeThis = $(this).parents('.grid-row');
+      e.preventDefault();
+      insertFields(beforeThis);
+      sortFields();
+    });
+
+    $(document).on('click', '.remove-list-item', function (e) {
+      e.preventDefault();
+      $(this).parents('.list-item-wrapper').remove();
+      sortFields();
+    });
+
+    function insertFields(element) {
+      element.before(
+        '<div class="grid-row">' +
+          '<div class="form-group-compound list-item-wrapper">' +
+            '<h2 class="heading-medium"></h2>' +
+            '<fieldset>' +
+              '<div class="column-one-third no-padding">' +
+                '<div class="form-group list-item">' +
+                  '<label class="form-label" for="field-x">' +
+                    'Field label' +
+                  '</label>' +
+                  '<input type="text" class="form-control" id="field-x" name="field-x">' +
+                '</div>' +
+              '</div>' +
+              '<div class="column-one-third no-padding">' +
+                '<div class="form-group list-item">' +
+                  '<label class="form-label" for="field-x">' +
+                    'Field label' +
+                  '</label>' +
+                  '<input type="text" class="form-control" id="field-x" name="field-x">' +
+                '</div>' +
+              '</div>' +
+              '<div class="column-one-third no-padding">' +
+                '<div class="list-item">' +
+                '</div>' +
+              '</div>' +
+            '</fieldset>' +
+            '<hr />' +
+          '</div>' +
+        '</div>'
+      );
+    }
+
+    function sortFields() {
+      var listCounter = 1;
+      var inputCounter = 1;
+
+      $(document).find('.list-item-wrapper').each(function () {
+        $(this).find('h2').text('Injury ' + listCounter);
+
+        if ($(this).find('.remove-list-item').length === 0) {
+          $(this).find('.list-item:last').append('<a id="remove-item-' + listCounter + '" class="remove-list-item" href="#">Remove this</a>');
+        } else {
+          $(this).find('.remove-list-item').attr('id', 'remove-item-' + listCounter);
+        }
+
+        $(this).find('.list-item').children('label').each(function () {
+          $(this).attr('for', 'field-' + inputCounter);
+          inputCounter++;
+        });
+
+        $(this).find('.list-item').children('input').each(function () {
+          var labelNo = $(this).parent().find('label').attr('for').split('-').pop();
+          $(this).attr('id', 'field-' + labelNo);
+          $(this).attr('name', 'field-' + labelNo);
+        });
+
+        listCounter++;
+      });
+
+      if ($(document).find('.list-item-wrapper').length === 1) {
+        $('.remove-list-item').remove();
+      }
+    }
+</script>
+
+{% endblock %}

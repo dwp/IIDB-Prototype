@@ -19,39 +19,47 @@ module.exports = function(router, config) {
       break;
 
        // Self employed main page          
-      case 'self_checker':
+      case 'elligible_consent':
         if(postData['selfemployed'] == 'true') {
           res.redirect('self_employed_class1');
         }
         else if (postData['selfemployed'] == 'false') {
-          res.redirect('employer_details');
+          res.redirect('elligible_consent');
         } 
         else if (postData['selfemployed'] == 'unsure') {
           res.redirect('self_checker');
         } 
-      break;
-            
-    // Self checker page          
-      case 'self_employed_class1':
+        // Self checker page 
         if(postData['selfchecker'] == 'true') {
           res.redirect('self_employed_class1');
         }
         else if (postData['selfchecker'] == 'false') {
-          res.redirect('employer_details');
+          res.redirect('elligible_consent');
         } 
-      break;
-            
-    // Self class 1 page //
-      case 'employer_details':
+        // Self class 1 page //
         if(postData['payclass1"'] == 'true') {
-          res.redirect('employer_details');
+          res.redirect('elligible_consent');
         }
         else if (postData['payclass1'] == 'false') {
           res.redirect('ineligible');
         } 
       break;
+            
+        // Medical Professionals //
+        case 'medical_names':
+        if(postData['seek_medical'] == 'false') {
+          res.redirect('accident_workrelated');
+        }
+      break;
 
 
+            
+        // Did you report the accident to the employer //
+        case 'report_got':
+        if(postData['report_employer'] == 'false') {
+          res.redirect('employer_details');
+        }
+      break;
 
     }
 
