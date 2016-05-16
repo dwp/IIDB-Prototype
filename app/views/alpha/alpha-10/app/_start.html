@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Industrial Injuries Disablement Benefit - GOV.UK 
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{{ super() }}
+
+    <div class="grid-row gov-pages">
+    
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge">Industrial Injuries Disablement Benefit</h1>
+            
+              <div class="grid-row font-xsmall iidb-nav">
+
+                <div class="column-one-half">
+                  <ol>
+                          <li>
+                            <span class="part-number">1.</span>
+                              <a title="Part 1: Overview" href="{{ proto.path }}/index.html">Overview</a>
+                          </li>
+                          <li>
+                            <span class="part-number">2.</span>
+                            <a title="Part 2: What you'll get" href="{{ proto.path }}/_whatyouget.html">What you'll get</a>
+                          </li>
+                          <li>
+                              <span class="part-number">3.</span>
+                            <a title="Part 3: Eligibility" href="{{ proto.path }}/_eligibility.html">Eligibility</a>
+                      </li>
+                    </ol>
+                </div>
+
+                <div class="column-one-half">
+                    <ol start="4">
+                          <li>
+                            <span class="part-number">4.</span>
+                           How to claim
+                          </li>
+                          <li>
+                            <span class="part-number">5.</span>
+                            <a title="Part 5: Further information" href="{{ proto.path }}/_furtherinfo.html">Further information</a>
+                          </li>
+                    </ol>
+                </div>
+
+             
+              </div>
+         
+            <h2 class="heading-medium">Use this service to claim Industrial Injuries Disablement Benefit(IIDB)</h2>
+           
+            <p>The application will take around 10 minutes to complete and to claim you'll need:</p>
+            
+            <ul class="list list-bullet text">
+                <li>Details of the accident</li>
+                <li>Details of the medical professional or establishment you visited after you accident (if you visted one)</li>
+                <li>Employment details at the time of the accident</li>
+                <li>National insurance number</li>
+                <li>Bank details</li>
+            </ul>
+            
+            
+            <form action="{{ proto.path }}/why" method="post" autocomplete="off">
+
+                <fieldset class="primary-nav form-group">
+                  <legend class="visuallyhidden">Form Navigation</legend>
+                  <input type="submit" value="Start now" class="button button-start" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                </fieldset>
+
+              </form>
+            
+            <div class="panel panel-border-wide">
+            Note: benefits are paid every 4 weeks in arrears for new claims
+            </div>
+            
+            
+            <h2 class="heading-medium">Other ways to claim</h2>
+            
+            <p>Print and fill in <a href="https://www.gov.uk/government/publications/industrial-injuries-disablement-benefit-claim-forms">form BI100A</a> to claim Industrial Injuries Disablement Benefit (<abbr title="Industrial Injuries Disablement Benefit">IIDB</abbr>) for accidents.</p>
+            
+            <h5 class="heading-small">Barnsley Industrial Injuries Disablement Benefit centre</h5>
+            Telephone: 0345 758 5433  <br>
+            <a href="https://www.gov.uk/call-charges">Find out about call charges</a>
+            
+            
+            <h2 class="heading-medium">Where to send your form</h2>
+            
+            <p>Send your form to Barrow Industrial Injuries Disablement Benefit Centre if you’re claiming under special provisions. Read the <a href="https://www.gov.uk/government/publications/industrial-injuries-disablement-benefit-claim-forms">guidance notes in the application form</a> to see if this applies to you.</p>
+            
+            <p>
+            Barrow Benefit Centre  
+            <br>Post Handling Site B  
+            <br>Wolverhampton  
+            <br>WV99 1RX  
+            <br>
+            </p>
+            
+            
+            
+            <p>Telephone: 0345 603 1358<br>
+            Textphone: 0345 608 8551<br>
+            <a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+            
+            <p>
+
+            Barnsley <abbr title="Industrial Injuries Disablement Benefit">IIDB</abbr> Centre  
+            <br>Mail Handling Site A  
+            <br>Wolverhampton  
+            <br>WV98 1SY
+            <br>
+            </p>
+            
+            
+            <p>Telephone: 0345 758 5433<br>
+            Textphone: 0345 608 8551<br>
+            <a href="https://www.gov.uk//call-charges">Find out about call charges</a></p>
+            
+            
+            
+        </div>
+       
+        
+        
+        
+       
+        <div class="column-one-third">
+            <aside class="related">
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Jobseeker's Allowance and low income benefits</h5>
+                        <a href="https://www.gov.uk/diffuse-mesothelioma-payment">Diffuse mesothelioma payments</a>                 
+                        <a class="bold" href="https://www.gov.uk/browse/benefits/jobseekers-allowance">More <span class="visuallyhidden">in Jobseeker's Allowance and low income benefits</span></a>
+                </div>
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Benefits</h5>
+                    <a href="https://www.gov.uk/benefit-fraud">Benefit fraud</a>
+                    <a class="bold" href="/browse/benefits">More <span class="visuallyhidden">in Benefits</span></a>
+                </div>
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Elsewhere on GOV.UK</h5>
+                
+                    <a href="https://www.gov.uk/day-care-centres">Disability day care centres</a>
+                  
+                </div>
+            </aside>
+        </div>
+        
+        
+        
+        
+    </div>
+ 
+</main>
+
+{% endblock %}
