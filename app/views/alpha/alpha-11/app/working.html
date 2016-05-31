@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  {{ proto.title + ' ' + proto.version }} - Am I elligible to claim?
+  {{ proto.title + ' ' + proto.version }} - Where did the accident happen?
 {% endblock %}
 
 {% block content %}
@@ -12,34 +12,61 @@
     <div class="column-two-thirds">
    
 
-          <h1 class="heading-large">Were you at work or on work approved training when you had the accident?</h1>
+          <h1 class="heading-large">Were you at work?</h1>
 
           <form action="{{ proto.path }}/self_employed" method="post">
             <fieldset class="inline">
 
-              <legend class="visuallyhidden">Were you at work or on work approved training when you had the accident?</legend>
+              <legend class="visuallyhidden">Were you at work?</legend>
 
               <div class="form-group">
 
                 <label class="block-label" for="radio-indent-1">
-                  <input id="radio-indent-1" type="radio" name="atwork" value="true">
+                  <input id="radio-indent-1" type="radio" name="were-working" value="true">
                   Yes
                 </label>
 
-                <label class="block-label" data-target="about-accident" for="radio-indent-2">
-                  <input id="radio-indent-2" type="radio" name="atwork" value="false">
+                <label class="block-label" data-target="training" for="radio-indent-2">
+                  <input id="radio-indent-2" type="radio" name="were-working" value="false">
                   No
                 </label>
 
-                <div class="panel panel-border-wide js-hidden" id="about-accident">
+
+
+            
+<!--
+                <div class="panel panel-border-wide js-hidden" id="training">
                   <p>You can't claim Industrial Injuries Disablement Benefit if you weren't at work or on training at the time of the accident.
                       <a rel="external" href="https://www.gov.uk/industrial-injuries-disablement-benefit/eligibility">Find out more on GOV.UK</a>.
                   </p>
                 </div>
-
+-->
               </div>
 
             </fieldset>
+
+
+            <fieldset class="inline">
+                <div class="panel panel-border-narrow js-hidden" id="training">
+                  <p>Were you on an approved employment training?</p>
+                  <legend class="visuallyhidden">Were you on an approved employment training?</legend>
+                
+                  <label class="block-label" for="radio-indent-3">
+                    <input id="radio-indent-3" type="radio" name="were-training" value="true">
+                    Yes
+                  </label>
+
+                  <label class="block-label" for="radio-indent-4">
+                    <input id="radio-indent-4" type="radio" name="were-training" value="false">
+                    No
+                  </label>
+
+                </div>
+              
+            </fieldset>
+
+
+
 
                <fieldset class="primary-nav form-group">
                   <legend class="visuallyhidden">Form Navigation</legend>

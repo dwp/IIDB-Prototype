@@ -13,15 +13,14 @@
 
 
         
-      <h3 class="heading-large">Tell us the address of the 
-          {% if postData.professional == '' or postData.professional == undefined or postData.professional == null %} 
-           establishment
-          {% else %} 
-          {{ postData.professional }}
-          {% endif %}
-          you visited</h3>
+      <h3 class="heading-large">Tell us about your doctors or medical centre</h3>
 
-      <form action="{{ proto.path }}/accident_workrelated" method="post" autocomplete="off">
+      <form action="{{ proto.path }}/personal_details" method="post" autocomplete="off">
+
+        <div class="form-group">
+          <label class="form-label" for="town">Medical centre name</label>
+          <input class="form-control" id="surgery-name" type="text" name="surgery-name">
+        </div>
 
         <div class="form-group" id="address-container">
           <p class="form-label">Address</p>
@@ -39,12 +38,12 @@
           <label class="form-label" for="postcode">Postcode</label>
           <input class="form-control" id="postcode" type="text" name="postcode">
         </div>
-
+<!--
         <div class="form-group">
           <label class="form-label" for="telephone">Telephone</label>
           <input class="form-control" id="telephone" type="number" name="telephone">
         </div>
-
+-->
 
         <fieldset class="primary-nav form-group">
           <legend class="visuallyhidden">Form Navigation</legend>

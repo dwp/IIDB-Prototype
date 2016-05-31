@@ -19,15 +19,15 @@ module.exports = function(router, config) {
       break;
 
        // Self employed main page  
-      case 'accident_date':
+      case 'when':
       if(postData['selfemployed'] == 'employed') {
-          res.redirect('accident_date');
+          res.redirect('when');
         }
         else if (postData['selfemployed'] == 'selfemployed') {
           res.redirect('ineligible');
         } 
         else if (postData['selfemployed'] == 'director') {
-          res.redirect('accident_date');
+          res.redirect('when');
         } 
         break;
 
@@ -74,6 +74,21 @@ module.exports = function(router, config) {
          // res.redirect('employer_details');
         //}
       //break;
+
+      case 'date_payslip':
+        if(postData['when-happen'] == 'false') {
+          res.redirect('date');
+        }
+      break;
+
+       case 'self-employed':
+        if(postData['were-working'] == 'false') {
+          res.redirect('ineligible');
+        }
+      break;
+
+
+
 
     }
 

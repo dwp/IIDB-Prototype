@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  {{ proto.title + ' ' + proto.version }} - Accident - How did it happen?
+  {{ proto.title + ' ' + proto.version }} - Accident - What happened?
 {% endblock %}
 
 {% block content %}
@@ -15,21 +15,34 @@
         
      
 
-            <form action="{{ proto.path }}/accident_specific" method="post" autocomplete="off">
+            <form action="{{ proto.path }}/accident_report" method="post" autocomplete="off">
                 <fieldset>
                     
-                <h1 class="heading-large">Tell us how the accident happened?</h1>
+                <h1 class="heading-large">What happened?</h1>
 
-                  <legend class="visuallyhidden">Tell us how the accident happened?</legend>
+                  <legend class="visuallyhidden">What happened?</legend>
 
                     <div class="form-group">
                         <div class="form-group">
-                          <label class="form-label" for="text-area">Be specific about how it happened and the circumstances.</label>
+                          <label class="form-label form-hint" for="text-area">Tell us where, what, and how
+                          </label>
                           
-                          <textarea class="form-control form-control-3-4" rows="10" id="text-area" name="text-area"></textarea>
-                            <p class="form-hint"><span data-start="1000">0</span> characters remaining</p>
+                          <textarea class="form-control form-control-3-4" rows="2" id="text-area" name="text-area"></textarea>
+                           
                         </div>
                       </div>
+
+                  <h2 class="heading-medium">What was injured?</h2>  
+                  
+                  <div class="form-group">
+                        <div class="form-group">
+                          <label class="form-label form-hint" for="text-area">For example, Left leg, back or neck
+                          </label>
+                          
+                          <textarea class="form-control form-control-3-4" rows="1" id="text-area" name="text-area"></textarea>
+                           
+                        </div>
+                      </div>  
                     
                 </fieldset>
 
@@ -52,21 +65,6 @@
 {% block body_end %}
 
   {{ super() }}
-<script>
-$(document).ready(function () {
-      $('span').each(function () {
-        if ($(this).attr('data-start')) {
-          $(this).html($(this).attr('data-start'));
-        }
-      });
-    });
 
-    $(document).on('keyup', '#text-area', function () {
-      var span = $(this).parents('.form-group').find('.form-hint span');
-      var start = $(this).parents('.form-group').find('.form-hint span').attr('data-start');
-      remaning = start - $(this).val().length;
-      span.html(remaning);
-    });
-</script>
 
 {% endblock %}
