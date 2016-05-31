@@ -19,15 +19,15 @@ module.exports = function(router, config) {
       break;
 
        // Self employed main page  
-      case 'when':
+      case 'employment_details':
       if(postData['selfemployed'] == 'employed') {
-          res.redirect('when');
+          res.redirect('employment_details');
         }
         else if (postData['selfemployed'] == 'selfemployed') {
           res.redirect('ineligible');
         } 
         else if (postData['selfemployed'] == 'director') {
-          res.redirect('when');
+          res.redirect('employment_details');
         } 
         break;
 
