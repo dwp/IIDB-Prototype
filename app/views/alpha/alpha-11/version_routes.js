@@ -81,15 +81,15 @@ module.exports = function(router, config) {
         }
       break;
 
-       case 'self-employed':
-        if(postData['were-working'] == 'false') {
+      case 'self_employed':
+        if (postData['were-working'] == 'true' && !postData['were-working-training']) {
+          next();
+        } else if (postData['were-working'] == 'false' && postData['were-working-training'] == 'true') {
+          next();
+        } else {
           res.redirect('ineligible');
         }
       break;
-
-
-
-
     }
 
     next();
