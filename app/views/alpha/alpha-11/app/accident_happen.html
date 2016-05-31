@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Accident - What happened?
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+        
+     
+
+            <form action="{{ proto.path }}/accident_report" method="post" autocomplete="off">
+                <fieldset>
+                    
+                <h1 class="heading-large">What happened?</h1>
+
+                  <legend class="visuallyhidden">What happened?</legend>
+
+                    <div class="form-group">
+                        <div class="form-group">
+                          <label class="form-label form-hint" for="text-area">Tell us where, what, and how
+                          </label>
+                          
+                          <textarea class="form-control form-control-3-4" rows="2" id="text-area" name="text-area"></textarea>
+                           
+                        </div>
+                      </div>
+
+                  <h2 class="heading-medium">What was injured?</h2>  
+                  
+                  <div class="form-group">
+                        <div class="form-group">
+                          <label class="form-label form-hint" for="text-area">For example, Left leg, back or neck
+                          </label>
+                          
+                          <textarea class="form-control form-control-3-4" rows="1" id="text-area" name="text-area"></textarea>
+                           
+                        </div>
+                      </div>  
+                    
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+
+
+
+</div>
+</div>
+</main>
+
+
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+
+{% endblock %}
