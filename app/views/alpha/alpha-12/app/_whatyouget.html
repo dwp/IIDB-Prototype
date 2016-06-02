@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Industrial Injuries Disablement Benefit - GOV.UK 
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+
+
+    <div class="grid-row gov-pages">
+    
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge">Industrial Injuries Disablement Benefit</h1>
+            
+              <div class="grid-row font-xsmall iidb-nav">
+
+               <div class="column-one-half">
+                  <ol>
+                          <li>
+                            <span class="part-number">1.</span>
+                              <a title="Part 1: Overview" href="{{ proto.path }}/index.html">Overview</a>
+                          </li>
+                          <li>
+                            <span class="part-number">2.</span>
+                            What you'll get
+                          </li>
+                          <li>
+                              <span class="part-number">3.</span>
+                            <a title="Part 3: Eligibility" href="{{ proto.path }}/_eligibility.html">Eligibility</a>
+                      </li>
+                    </ol>
+                </div>
+
+                <div class="column-one-half">
+                    <ol start="4">
+                          <li>
+                            <span class="part-number">4.</span>
+                           <a title="Part 3: Eligibility" href="{{ proto.path }}/_start.html">How to claim</a>
+                          </li>
+                          <li>
+                            <span class="part-number">5.</span>
+                            <a title="Part 5: Further information" href="{{ proto.path }}/_furtherinfo.html">Further information</a>
+                          </li>
+                    </ol>
+                </div>
+
+              </div>
+            <!-- ////// Main Content ///////////// -->
+            
+            <h3 class="heading-medium">2. What you'll get</h3>
+            
+            <p>A ‘medical advisor’ will assess your disability on a scale of 1 to 100%. The level of your disability will affect the amount you're paid. </p>
+            
+            
+            
+            <div role="note" aria-label="Information" class="panel panel-border-wide">
+            <p>Normally you must be assessed as 14% disabled or more to get the benefit.</p>
+            </div>
+            
+            <p>Benefits are paid every 4 weeks. All amounts are a guide only. </p>
+            
+            <table>
+                  <thead>
+                    <tr>
+                      <th>Assessed level of disablement</th>
+                      <th>Weekly amount</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>100%</td>
+                      <td>£168.00</td>
+                    </tr>
+                    <tr>
+                      <td>90%</td>
+                      <td>£151.20</td>
+                    </tr>
+                    <tr>
+                      <td>80%</td>
+                      <td>£134.40</td>
+                    </tr>
+                    <tr>
+                      <td>70%</td>
+                      <td>£117.60</td>
+                    </tr>
+                    <tr>
+                      <td>60%</td>
+                      <td>£100.80</td>
+                    </tr>
+                    <tr>
+                      <td>50%</td>
+                      <td>£84.00</td>
+                    </tr>
+                    <tr>
+                      <td>40%</td>
+                      <td>£67.20</td>
+                    </tr>
+                    <tr>
+                      <td>30%</td>
+                      <td>£50.40</td>
+                    </tr>
+                    <tr>
+                      <td>20%</td>
+                      <td>£33.60</td>
+                    </tr>
+                  </tbody>
+                </table>
+            
+        </div>
+       
+        
+        
+        
+        <div class="column-one-third">
+            <aside class="related">
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Jobseeker's Allowance and low income benefits</h5>
+                        <a href="https://www.gov.uk/diffuse-mesothelioma-payment">Diffuse mesothelioma payments</a>                 
+                        <a class="bold" href="https://www.gov.uk/browse/benefits/jobseekers-allowance">More <span class="visuallyhidden">in Jobseeker's Allowance and low income benefits</span></a>
+                </div>
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Benefits</h5>
+                    <a href="https://www.gov.uk/benefit-fraud">Benefit fraud</a>
+                    <a class="bold" href="https://www.gov.uk/browse/benefits">More <span class="visuallyhidden">in Benefits</span></a>
+                </div>
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Elsewhere on GOV.UK</h5>
+                
+                    <a href="https://www.gov.uk/day-care-centres">Disability day care centres</a>
+                  
+                </div>
+            </aside>
+        </div>
+        
+        
+        
+        
+    </div>
+ 
+</main>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{ proto.version | upper | trC('-',' ') }}</h1>
+
+      <p>This version comprises the following Trello Cards from the <a href="https://trello.com/b/7yUKtZyd">IIDB Hypothesis Board</a></p>
+
+       {{
+        helpers.linkList([
+      
+        
+        {
+            url: 'https://trello.com/c/eFy7cGvh/50-gp-details-name-and-address',
+            text: 'GP Details Name and Address (1)'
+          },
+        {
+            url: 'https://trello.com/c/7M2nBFjG/34-application-has-been-received-sent',
+            text: 'Application has been received/sent (1)'
+          },
+
+        {
+            url: 'https://trello.com/c/hCJ9mqPY/38-contacting-others',
+            text: 'Do you agree to us contacting others (3)'
+          },
+       
+          {
+            url: 'https://trello.com/c/D314bU2d/36-what-was-the-accident-and-how-did-it-happen',
+            text: 'What was the accident and how did it happen (5)'
+          },
+        {
+           url: 'https://trello.com/c/jgHemsZi/49-naming-convention',
+            text: 'Challenges surround the name (5)'
+          },
+         {
+            url: 'https://trello.com/c/AvWI9FWv/29-gov-uk-content',
+            text: 'Looking at Gov.uk content and ways into the service (5)'
+          },
+          
+          {
+            url: 'https://trello.com/c/OW6tzqv1/24-users-giving-medical-consent-declaration-development',
+            text: 'Consent for access to Medical records (5)'
+          },
+          {
+            url: 'https://trello.com/c/lzSg4b4U',
+            text: "There are reasons a user won't be eligible to claim.(5)"
+          },
+          {
+            url: 'https://trello.com/c/6svsMgiS',
+            text: 'Method and Frequency of Payment(5)'
+          }
+        ])
+      }}
+
+
+
+      <p><a class="button button-start" href="{{ proto.path }}" role="button">View prototype</a></p>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

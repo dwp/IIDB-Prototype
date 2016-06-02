@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - You may be elligible to claim?
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{{ super() }}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        
+        
+        <h1 class="heading-large">Permission to contact other people</h1>
+
+           
+        
+        
+            <p>To continue with your application the Industrial Injuries Disablement Benefit team may ask the following people for more information:</p>
+
+            <ul class="list list-bullet">
+                <li>your employer</li>
+                <li>people who know about your condition, eg doctors, physiotherapists or counsellors who treated you</li>
+            </ul>
+
+           
+
+    
+        
+          <form action="{{ proto.path }}/consent" method="post">
+              
+             <!-- <div class="form-group">
+
+              <h2 class="heading-medium">Do you agree to this contact?</h2>
+                  <fieldset class="inline">
+
+                      <legend class="visuallyhidden">Do you agree to this contact?</legend>
+
+                      <label class="block-label" for="account-yes">
+                        <input id="account-yes" type="radio" name="medical-consent" value="Yes">
+                        Yes
+                      </label>
+
+                      <label class="block-label" for="account-no" data-target="no-consent">
+                        <input id="account-no" type="radio" name="medical-consent" value="No">
+                        No
+                      </label>
+                 </fieldset>
+                  
+                   <div class="panel panel-border-wide js-hidden" id="no-consent">
+                  <p>
+                      If you do not consent your claim could be affected. 
+                    </p>
+                </div>
+                  
+                  
+
+              </div>-->
+               <p>If you have questions about this or change your mind after sending your application, then call 0345 758 5433.</p>
+              
+               <fieldset>
+                  <input type="submit" value="I agree - continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                </fieldset>
+
+          </form>
+
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

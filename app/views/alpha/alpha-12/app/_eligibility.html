@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Industrial Injuries Disablement Benefit - GOV.UK 
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+
+
+    <div class="grid-row gov-pages">
+    
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge">Industrial Injuries Disablement Benefit</h1>
+            
+              <div class="grid-row font-xsmall iidb-nav">
+
+                <div class="column-one-half">
+                  <ol>
+                          <li>
+                            <span class="part-number">1.</span>
+                              <a title="Part 1: Overview" href="{{ proto.path }}/index.html">Overview</a>
+                          </li>
+                          <li>
+                            <span class="part-number">2.</span>
+                            <a title="Part 2: What you'll get" href="{{ proto.path }}/_whatyouget.html">What you'll get</a>
+                          </li>
+                          <li>
+                              <span class="part-number">3.</span>
+                            Eligibility
+                      </li>
+                    </ol>
+                </div>
+
+                <div class="column-one-half">
+                    <ol start="4">
+                          <li>
+                            <span class="part-number">4.</span>
+                           <a title="Part 3: Eligibility" href="{{ proto.path }}/_start.html">How to claim</a>
+                          </li>
+                          <li>
+                            <span class="part-number">5.</span>
+                            <a title="Part 5: Further information" href="{{ proto.path }}/_furtherinfo.html">Further information</a>
+                          </li>
+                    </ol>
+                </div>
+             
+              </div>
+            
+            <!-- ////// Main Content ///////////// -->
+            
+            <h3 class="heading-medium">3. Eligibility</h3>
+            
+            <h4 class="heading-medium">Accidents</h4>
+            <p>You may be able to claim Industrial Injuries Disablement Benefit (<abbr title="Industrial Injuries Disablement Benefit">IIDB</abbr>) if the accident or event that caused your illness happened:</p>
+            
+            <ul class="list list-bullet text">
+              <li>while you were employed</li>
+              <li>while you were on an approved employment training scheme or course</li>
+              <li>in England, Scotland or Wales</li>
+            </ul>
+            
+            <p>There are some exceptions - ask your regional <a href="https://www.gov.uk/industrial-injuries-disablement-benefit/further-information">Industrial Injuries Disablement Benefit Centre</a>.</p>
+            
+            
+            
+            <div role="note" aria-label="Information" class="panel panel-border-wide">
+                  You can’t claim Industrial Injuries Disablement Benefit if you were self-employed. If you were a director or contractor at the time you may have been employed - <a href='https://www.gov.uk/employment-status/employee'>check your employment status</a> if you're unsure. 
+              </div>
+            
+
+        </div>
+       
+        
+        
+        
+        <div class="column-one-third">
+            <aside class="related">
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Jobseeker's Allowance and low income benefits</h5>
+                        <a href="https://www.gov.uk/diffuse-mesothelioma-payment">Diffuse mesothelioma payments</a>                 
+                        <a class="bold" href="https://www.gov.uk/browse/benefits/jobseekers-allowance">More <span class="visuallyhidden">in Jobseeker's Allowance and low income benefits</span></a>
+                </div>
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Benefits</h5>
+                    <a href="https://www.gov.uk/benefit-fraud">Benefit fraud</a>
+                    <a class="bold" href="/browse/benefits">More <span class="visuallyhidden">in Benefits</span></a>
+                </div>
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Elsewhere on GOV.UK</h5>
+                
+                    <a href="https://www.gov.uk/day-care-centres">Disability day care centres</a>
+                  
+                </div>
+            </aside>
+        </div>
+        
+        
+        
+        
+    </div>
+ 
+</main>
+
+{% endblock %}
