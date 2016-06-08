@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Am I elligible to claim?
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+          <h1 class="heading-large">What was your employment status?</h1>
+           
+            <form action="{{ proto.path }}/employment_details" method="post">
+                <fieldset>
+
+                  <legend class="visuallyhidden">YWhat was your employment status</legend>
+
+
+                  <div class="form-group">
+
+                     <label class="block-label" for="radio-indent-1">
+                      <input id="radio-indent-1" type="radio" name="selfemployed" value="employed">
+                      Employed
+                    </label>
+
+                    <label class="block-label" for="radio-indent-2">
+                      <input id="radio-indent-2" type="radio" name="selfemployed" value="selfemployed">
+                      Self-employed
+                    </label>
+                      
+                    <label class="block-label" for="radio-indent-3">
+                      <input id="radio-indent-3" type="radio" name="selfemployed" value="director">
+                      Director of a limited company
+                    </label>
+
+
+                  </div>
+
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+
+
+</div>
+</div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+
+{% endblock %}
