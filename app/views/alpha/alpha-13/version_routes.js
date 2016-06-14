@@ -85,7 +85,7 @@ module.exports = function(router, config) {
         if (postData['were-working'] == 'true' && !postData['were-working-training']) {
           next();
         } else if (postData['were-working'] == 'false' && postData['were-working-training'] == 'true') {
-          next();
+          res.redirect('training_details');
         } else {
           res.redirect('ineligible');
         }
