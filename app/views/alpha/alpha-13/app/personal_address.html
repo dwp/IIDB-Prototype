@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  {{ proto.title + ' ' + proto.version }} - Your details 
+  {{ proto.title + ' ' + proto.version }} - Your address
 {% endblock %}
 
 {% block content %}
@@ -12,47 +12,13 @@
     <div class="column-two-thirds">
 
 
-      <h3 class="heading-large">Your details</h3>
+      <h3 class="heading-large">Your address</h3>
 
-      <form action="{{ proto.path }}/personal_address" method="post" autocomplete="off">
+      <form action="{{ proto.path }}/contact_preference" method="post" autocomplete="off">
 
-      <fieldset class="form-group">
+      <fieldset>
 
-        <div class="form-group">
-          <label class="form-label" for="input-name">First name</label>
-          <input class="form-control" id="input-name" type="text" name="firstname">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="input-surname">Surname</label>
-          <input class="form-control" id="input-surname" type="text" name="surname">
-        </div>
-
-        <div class="form-date">
-          <span>Date of birth</span>
-          <span class="form-hint">For example 20 3 1976</span>
-          <div class="form-group form-group-day">
-            <label for="dob-day">Day</label>
-            <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="dob-hint">
-          </div>
-
-          <div class="form-group form-group-month">
-            <label for="dob-month">Month</label>
-            <input class="form-control" id="dob-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="12">
-          </div>
-
-          <div class="form-group form-group-year">
-            <label for="dob-year">Year</label>
-            <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*" min="0" max="2016">
-          </div>
-        </div>
-
-
-            
-
-          </fieldset>
-
-
-<!--
+        
         <div class="form-group" id="address-container">
            <label class="form-label">Address</label>
           <input type="text" class="form-control add-fix" id="address-line1">
@@ -70,7 +36,7 @@
           <label class="form-label" for="postcode">Postcode</label>
           <input class="form-control" id="postcode" type="text" name="postcode">
         </div>
-
+<!--
         <div class="form-group">
           <label class="form-label" for="mobile">Contact number</label>
           <input class="form-control" id="mobile" type="number" name="mobile">
@@ -79,6 +45,13 @@
           <span class="">Use this number to get text updates</span>
            </label>
         </div>
+            
+-->
+          </fieldset>
+
+
+<!--
+        
 
         -->
 
