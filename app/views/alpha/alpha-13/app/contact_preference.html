@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Contact preference
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+      <h1 class="heading-large">How would you like to be contacted?</h1>
+
+          <form action="{{ proto.path }}/elligible_consent" method="post">
+            <fieldset>
+
+              <legend class="visuallyhidden">How would you like to be contacted?</legend>
+
+              <div class="form-group">
+                
+                <label class="block-label" data-target="call-only-open"  for="call-only">
+                  <input id="call-only" type="radio" name="contact" value="phone">
+                  Phone calls only
+                </label>
+                <div class="panel panel-border-narrow js-hidden" id="call-only-open">     
+                  <label class="form-label" for="tel-number">Telephone number</label>
+                  <input class="form-control" name="tel-number"" type="text" id="tel-number">
+                </div>
+              
+
+
+                <label class="block-label" data-target="sms-open"  for="sms">
+                  <input id="sms" type="radio" name="contact" value="sms">
+                  Phone calls and SMS text updates
+                </label>
+                <div class="panel panel-border-narrow js-hidden" id="sms-open">     
+                  <label class="form-label" for="mobile">Mobile number</label>
+                  <input class="form-control" name="mobile"" type="text" id="mobile">
+                </div>
+
+              </div>
+
+            </fieldset>
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+          
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}
