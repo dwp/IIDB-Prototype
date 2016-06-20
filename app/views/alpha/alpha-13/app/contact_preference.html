@@ -12,18 +12,32 @@
     <div class="column-two-thirds">
 
 
-      <h1 class="heading-large">How would you like to be contacted?</h1>
+      <h1 class="heading-large">We may need to contact you about your application</h1>
 
           <form action="{{ proto.path }}/elligible_consent" method="post">
             <fieldset>
 
-              <legend class="visuallyhidden">How would you like to be contacted?</legend>
+              <legend class="visuallyhidden">We may need to contact your about you application</legend>
 
+              
+              <p>How would you like us to contact you?<p>
               <div class="form-group">
+
+
+                
+               <label class="block-label" data-target="sms-open"  for="sms">
+                  <input id="sms" type="radio" name="contact" value="sms">
+                  Mobile number - We can provide text updates quickly via SMS
+                </label>
+                <div class="panel panel-border-narrow js-hidden" id="sms-open">     
+                  <label class="form-label" for="mobile">Mobile number</label>
+                  <input class="form-control" name="mobile"" type="text" id="mobile">
+                </div>
+
                 
                 <label class="block-label" data-target="call-only-open"  for="call-only">
                   <input id="call-only" type="radio" name="contact" value="phone">
-                  Phone calls only
+                  Landline number
                 </label>
                 <div class="panel panel-border-narrow js-hidden" id="call-only-open">     
                   <label class="form-label" for="tel-number">Telephone number</label>
@@ -32,15 +46,7 @@
               
 
 
-                <label class="block-label" data-target="sms-open"  for="sms">
-                  <input id="sms" type="radio" name="contact" value="sms">
-                  Phone calls and SMS text updates
-                </label>
-                <div class="panel panel-border-narrow js-hidden" id="sms-open">     
-                  <label class="form-label" for="mobile">Mobile number</label>
-                  <input class="form-control" name="mobile"" type="text" id="mobile">
-                </div>
-
+               
               </div>
 
             </fieldset>
