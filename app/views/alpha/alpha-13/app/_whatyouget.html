@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  {{ proto.title + ' ' + proto.version }} - Industrial Injuries Disablement Benefit - GOV.UK 
+What you'll get - {{ proto.title }} - GOV.UK
 {% endblock %}
 
 {% block content %}
 
 <main id="content" role="main">
-
+{{ super() }}
 
 
     <div class="grid-row gov-pages">
@@ -22,21 +22,22 @@
                   <ol>
                           <li>
                             <span class="part-number">1.</span>
-                              <a title="Part 1: Overview" href="{{ proto.path }}/index.html">How it works</a>
+                              <a title="Part 1: How it works" href="{{ proto.path }}/index.html">How it works</a>
                           </li>
                           <li>
                             <span class="part-number">2.</span>
                             What you'll get
                           </li>
-                          <li>
-                              <span class="part-number">3.</span>
-                            <a title="Part 3: Eligibility" href="{{ proto.path }}/_eligibility.html">Eligibility</a>
-                      </li>
+                         
                     </ol>
                 </div>
 
                 <div class="column-one-half">
                     <ol start="4">
+                         <li>
+                                  <span class="part-number">3.</span>
+                                <a title="Part 3: Eligibility" href="{{ proto.path }}/_eligibility.html">Eligibility</a>
+                          </li>
                           <li>
                             <span class="part-number">4.</span>
                            <a title="Part 3: Eligibility" href="{{ proto.path }}/_start.html">How to apply</a>
@@ -147,6 +148,8 @@
 
 {% endblock %}
 
-{% block footer_support_links %}
- 
+{% block body_end %}
+
+  {{ super() }}
+
 {% endblock %}

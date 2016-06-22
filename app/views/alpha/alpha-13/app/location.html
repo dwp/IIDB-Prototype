@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  {{ proto.title + ' ' + proto.version }} - Am I elligible to claim?
+Were you in England, Scotland or Wales when you had your accident? - {{ proto.title }} - GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -34,7 +34,7 @@
                     </label>
 
                     <div class="panel panel-border-wide js-hidden" id="about-accident">
-                      <p><a  rel="external" href="https://www.gov.uk/international-pension-centre">Contact the International
+                      <p><a  href="https://www.gov.uk/international-pension-centre">Contact the International
                 Pension Centre</a> for advice on claiming for accidents that happened outside the UK.
                         </p>
                     </div>
@@ -54,12 +54,8 @@
 </div>
 </div>
 </main>
-
 {% endblock %}
 
-{% block body_end %}
-
-  {{ super() }}
-
-
+{% block footer_support_links %}
+ 
 {% endblock %}

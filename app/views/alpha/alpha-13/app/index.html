@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  {{ proto.title + ' ' + proto.version }} - Industrial Injuries Disablement Benefit - GOV.UK 
+How it works - {{ proto.title }} - GOV.UK
 {% endblock %}
 
 {% block content %}
 
 <main id="content" role="main">
-
+{{ super() }}
 
 
     
@@ -29,15 +29,16 @@
                             <span class="part-number">2.</span>
                             <a title="Part 2: What you'll get" href="{{ proto.path }}/_whatyouget.html">What you'll get</a>
                           </li>
-                          <li>
-                              <span class="part-number">3.</span>
-                            <a title="Part 3: Eligibility" href="{{ proto.path }}/_eligibility.html">Eligibility</a>
-                      </li>
+                         
                     </ol>
                 </div>
 
                 <div class="column-one-half">
                     <ol start="4">
+                       <li>
+                                <span class="part-number">3.</span>
+                              <a title="Part 3: Eligibility" href="{{ proto.path }}/_eligibility.html">Eligibility</a>
+                        </li>
                           <li>
                             <span class="part-number">4.</span>
                            <a title="Part 3: Eligibility" href="{{ proto.path }}/_start.html">How to apply</a>
@@ -53,7 +54,7 @@
             
             <!-- ////// Main Content ///////////// -->
             
-            <h3 class="heading-medium">1. Overview</h3>
+            <h3 class="heading-medium">1. How it works</h3>
             
             <p>You might get Industrial Injuries Disablement Benefit (<abbr title="Industrial Injuries Disablement Benefit">IIDB</abbr>) if you became ill or are disabled because of an accident or disease either:</p>
             
@@ -105,6 +106,8 @@
 </main>
 {% endblock %}
 
-{% block footer_support_links %}
- 
+{% block body_end %}
+
+  {{ super() }}
+
 {% endblock %}
