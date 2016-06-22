@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  {{ proto.title + ' ' + proto.version }} - Accident - What happened?
+Accident details - {{ proto.title }} - GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -20,30 +20,29 @@
                     
                 <h1 class="heading-large">Accident details</h1>
                 <legend class="visuallyhidden">Accident details</legend>
-                  <h2 class="heading-medium">How did the accident happen?</h2> 
+                  <h2 class="heading-small">How did the accident happen?</h2> 
 
                     <div class="form-group">
-                        <div class="form-group">
+                        
                           <label class="form-label form-hint" for="text-area"><!--Give as much detail as possible.-->
                           </label>
                           <textarea class="form-control form-control-3-4" rows="4" id="text-area" name="text-area"></textarea>
                            
-                        </div>
-                      </div>
+                   
+                    </div>
 
-                  <h2 class="heading-medium">What was injured or affected?</h2>  
+                  
                   
                   <div class="form-group">
-                        <div class="form-group">
-                          <label class="form-label" for="text-area">List the parts of your body that were injured, eg left leg or little finger right hand.
+                       
+                        <h2 class="heading-small">What was injured or affected?</h2>  
+
+                          <label class="form-label" for="text-area">List the parts of your body that were injured.
                           </label>
-                          
+                          <span class="form-hint">For example: Left leg or little finger right hand.</span>
                           <textarea class="form-control form-control-3-4" rows="1" id="text-area" name="text-area"></textarea>
 
-                          
-                           
-                        </div>
-                      </div>  
+                  </div>  
                     
                 </fieldset>
 

@@ -53,7 +53,7 @@ router.get('/', function (req, res) {
  */
 router.all([protoPaths.version], function(req, res, next){
   _.merge(res.locals.proto, {
-    title: 'Industrial Injuries Diablement Benefit - ' + req.params.phase,
+    title: 'Industrial Injuries Disablement Benefit',
     version: req.params.version,
     path: '/' + req.params.phase + '/' + req.params.version + '/app'
   });
