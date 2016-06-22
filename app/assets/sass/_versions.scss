@@ -162,5 +162,53 @@
   display: inline-block;
 }
 
+// ------------------------------------------------------------------
+// Next & Previous
+// ------------------------------------------------------------------
+.pagination {
+    display: block;
+    margin: 4em 0 0 0;
+    border-bottom: 1px solid #bfc1c3;
 
+    .ul {
+    list-style-type: circle;
+    list-style-image: url(https://assets.publishing.service.gov.uk/static/bullet-disc-5px-e3393763a04698f106321c52befae8f12a9667828004c9f18850aab735a7a577.gif);
+    }
+    li {
+    font-size: 19px;
+    line-height: 1.31579;
+    }
+    li.previous {
+    float: left;
+    text-align: left;
+    }
+    li.next {
+    float: right;
+    text-align: right;
+    }
+    .pagination-label {
+    font-size: 27px;
+    line-height: 1.25;
+    }
+    .pagination-part-title {
+    text-decoration: underline;
+    }
+    li.previous a:before {
+        background: transparent url(https://assets.publishing.service.gov.uk/static/arrow-sprite-0fa429eadf557102b8e1ca6bf7220f7e61812efbc4f52ed40e5aedd11474635f.png) no-repeat -20px -11px;
+        margin: -4px 0 0 -32px;
+        display: block;
+        float: left;
+        width: 30px;
+        height: 38px;
+        content: " ";
+    }
+    li.next a:before {
+    background: transparent url(https://assets.publishing.service.gov.uk/static/arrow-sprite-0fa429eadf557102b8e1ca6bf7220f7e61812efbc4f52ed40e5aedd11474635f.png) no-repeat -102px -11px;
+    margin: -4px -32px 0 0;
+    display: block;
+    float: right;
+    width: 30px;
+    height: 38px;
+    content: " ";
+    }
 
