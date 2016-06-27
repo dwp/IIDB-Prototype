@@ -28,6 +28,9 @@
 
 {% block content %}
 {% include "includes/phase_banner_alpha.html" %}
+{% if not page.hideback %}
+{% include "includes/back.html" %}
+{% endif %}
 {% endblock %}
 
 {% block footer_support_links %}
