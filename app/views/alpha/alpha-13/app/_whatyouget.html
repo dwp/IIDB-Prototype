@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+{% set page = {
+hideback: true
+} %}
+
 {% block page_title %}
 What you'll get - {{ proto.title }} - GOV.UK
 {% endblock %}
@@ -110,6 +114,22 @@ What you'll get - {{ proto.title }} - GOV.UK
                     </tr>
                   </tbody>
                 </table> 
+
+
+                <nav class="pagination" role="navigation" aria-label="Pagination">
+                  <ul class="">
+                        <li class="previous">
+                          <a title="Navigate to previous part" rel="prev" href="index">
+                            <span class="pagination-label">Previous </span> <span class="pagination-part-title">How it works</span>
+                         </a>          
+                        </li>
+                        <li class="next">
+                          <a title="Navigate to next part" rel="next" href="_eligibility">
+                            <span class="pagination-label">Next</span> <span class="pagination-part-title">Eligibility</span>
+                          </a>
+                        </li>
+                  </ul>
+              </nav>
             
         </div>
        

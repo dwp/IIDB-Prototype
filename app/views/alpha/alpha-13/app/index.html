@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+{% set page = {
+hideback: true
+} %}
+
 {% block page_title %}
 How it works - {{ proto.title }} - GOV.UK
 {% endblock %}
@@ -70,7 +74,20 @@ How it works - {{ proto.title }} - GOV.UK
             </div>
             
                 
-            
+            <nav class="pagination" role="navigation" aria-label="Pagination">
+                  <ul class="">
+                        <li class="previous">
+                         <!-- <a title="Navigate to previous part" rel="prev" href="/industrial-injuries-disablement-benefit/overview">
+                            <span class="pagination-label">Previous </span> <span class="pagination-part-title">Overview</span>
+                         </a>   -->       
+                        </li>
+                        <li class="next">
+                          <a title="Navigate to next part" rel="next" href="_whatyouget">
+                            <span class="pagination-label">Next</span> <span class="pagination-part-title">What you'll get</span>
+                          </a>
+                        </li>
+                  </ul>
+              </nav>
 
         </div>
        
