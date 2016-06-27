@@ -1,5 +1,9 @@
 {% extends "layout.html" %}
 
+{% set page = {
+hideback: true
+} %}
+
 {% block page_title %}
 How to apply - {{ proto.title }} - GOV.UK
 {% endblock %}
@@ -68,7 +72,7 @@ How to apply - {{ proto.title }} - GOV.UK
             </ul>
 
             <p>
-              We usually need you to go to a medical examination to asses how seriously you are disabled as a result of your accident. 
+              We usually need you to go to a medical examination to assess how seriously you are disabled as a result of your accident. 
             </p>
             
             
@@ -98,6 +102,22 @@ How to apply - {{ proto.title }} - GOV.UK
             Telephone: 0345 758 5433<br>
             Textphone: 0345 608 8551<br>
             <a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+
+
+            <nav class="pagination" role="navigation" aria-label="Pagination">
+                  <ul class="">
+                        <li class="previous">
+                          <a title="Navigate to previous part" rel="prev" href="_eligibility">
+                            <span class="pagination-label">Previous </span> <span class="pagination-part-title">Eligibility</span>
+                         </a>          
+                        </li>
+                        <li class="next"><!--
+                          <a title="Navigate to next part" rel="next" href="/industrial-injuries-disablement-benefit/eligibility">
+                            <span class="pagination-label">Next</span> <span class="pagination-part-title">Eligibility</span>
+                          </a>-->
+                        </li>
+                  </ul>
+              </nav>
             
         </div>
        

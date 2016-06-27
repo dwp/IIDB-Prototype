@@ -165,52 +165,153 @@
 // ------------------------------------------------------------------
 // Next & Previous
 // ------------------------------------------------------------------
+/* pagination stolen from GOV UK */
 .pagination {
+  display: block;
+  margin: 4em 0 0 0;
+  border-bottom: 1px solid #bfc1c3;
+  padding-bottom: 25px;
+  &:after{
+        content: "";
     display: block;
-    margin: 4em 0 0 0;
-    border-bottom: 1px solid #bfc1c3;
+    clear: both;
+  };
+}
 
-    .ul {
-    list-style-type: circle;
-    list-style-image: url(https://assets.publishing.service.gov.uk/static/bullet-disc-5px-e3393763a04698f106321c52befae8f12a9667828004c9f18850aab735a7a577.gif);
-    }
-    li {
-    font-size: 19px;
-    line-height: 1.31579;
-    }
-    li.previous {
+@media (max-width: 640px) {
+  .pagination {
+    margin: 2em 0 0 0;
+  }
+}
+
+.pagination ul {
+  margin: 0;
+  padding: 0;
+}
+
+.pagination li {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  float: left;
+  list-style: none;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  width: 49%;
+}
+
+@media (max-width: 640px) {
+  .pagination li {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
+}
+
+.pagination li a {
+  background-color: transparent;
+  display: block;
+  color: #005ea5;
+  text-decoration: none;
+}
+
+.pagination li a:hover, .pagination li a:active {
+  background-color: #f8f8f8;
+}
+
+.pagination li a .pagination-label {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 27px;
+  line-height: 1.25;
+  font-weight: 400;
+  text-transform: none;
+  margin-bottom: 0.1em;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .pagination li a .pagination-label {
+    font-size: 20px;
+    line-height: 1.11111;
+  }
+}
+
+.pagination li a .pagination-part-title {
+  text-decoration: underline;
+}
+
+.pagination li.next {
+  float: right;
+  text-align: right;
+}
+
+.pagination li.next a:before {
+  background: transparent url(/public/images/arrow-sprite.png) no-repeat -102px -11px;
+  margin: -4px -32px 0 0;
+  display: block;
+  float: right;
+  width: 30px;
+  height: 38px;
+  content: " ";
+}
+
+.pagination li.previous a:before {
+  background: transparent url(/public/images/arrow-sprite.png) no-repeat -20px -11px;
+  margin: -4px 0 0 -32px;
+  display: block;
+  float: left;
+  width: 30px;
+  height: 38px;
+  content: " ";
+}
+
+.pagination li.previous {
+  float: left;
+  text-align: left;
+}
+
+.pagination li.previous a {
+  padding: 0.75em 0 0.75em 3em;
+}
+
+.pagination li.next a {
+  padding: 0.75em 3em 0.75em 0;
+}
+
+@media (max-width: 640px) {
+  .pagination li.previous, .pagination li.next {
     float: left;
-    text-align: left;
-    }
-    li.next {
-    float: right;
+    width: 50%;
+  }
+  .pagination li.next a {
     text-align: right;
-    }
-    .pagination-label {
-    font-size: 27px;
-    line-height: 1.25;
-    }
-    .pagination-part-title {
-    text-decoration: underline;
-    }
-    li.previous a:before {
-        background: transparent url(https://assets.publishing.service.gov.uk/static/arrow-sprite-0fa429eadf557102b8e1ca6bf7220f7e61812efbc4f52ed40e5aedd11474635f.png) no-repeat -20px -11px;
-        margin: -4px 0 0 -32px;
-        display: block;
-        float: left;
-        width: 30px;
-        height: 38px;
-        content: " ";
-    }
-    li.next a:before {
-    background: transparent url(https://assets.publishing.service.gov.uk/static/arrow-sprite-0fa429eadf557102b8e1ca6bf7220f7e61812efbc4f52ed40e5aedd11474635f.png) no-repeat -102px -11px;
-    margin: -4px -32px 0 0;
-    display: block;
-    float: right;
-    width: 30px;
-    height: 38px;
-    content: " ";
+  }
+}
+
+.pagination .first, .pagination .last {
+  min-height: 4.5em;
+}
+
+.pagination .first span, .pagination .last span {
+  display: block;
+  min-height: 4.5em;
+  padding: 0.75em 5%;
+  width: 90%;
+}
+
+.pagination .first .pagination-label, .pagination .last .pagination-label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+// ------------------------------------------------------------------
+// Back
+// ------------------------------------------------------------------
+  .link-back {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    cursor: pointer;
     }
 
-    }
 
