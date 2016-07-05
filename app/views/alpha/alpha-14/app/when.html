@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Did the accident happen in the last 12 months? - {{ proto.title }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+   
+
+          <h1 class="heading-large">Did the accident happen in the last 12 months?</h1>
+
+          <form action="{{ proto.path }}/date_payslip" method="post">
+            <fieldset class="inline">
+
+              <legend class="visuallyhidden">Did it happen in the last 12 months?</legend>
+
+              <div class="form-group">
+
+                <label class="block-label" for="radio-indent-1">
+                  <input id="radio-indent-1" type="radio" name="when-happen" value="true">
+                  Yes
+                </label>
+
+                <label class="block-label" for="radio-indent-2">
+                  <input id="radio-indent-2" type="radio" name="when-happen" value="false">
+                  No
+                </label>
+
+              </div>
+
+            </fieldset>
+
+               <fieldset class="primary-nav form-group">
+                  <legend class="visuallyhidden">Form Navigation</legend>
+                  <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                </fieldset>
+          </form>
+
+
+
+
+
+
+</div>
+</div>
+</main>
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+
+{% endblock %}

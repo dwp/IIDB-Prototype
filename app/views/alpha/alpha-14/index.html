@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{ proto.version | upper | trC('-',' ') }}</h1>
+
+      <p>This version comprises the following Trello Cards from the <a href="https://trello.com/b/7yUKtZyd">IIDB Hypothesis Board</a></p>
+
+       {{
+        helpers.linkList([
+        
+        {
+            url: 'https://trello.com/c/BRtH6PNy/70-training-provider-details',
+            text: 'Training provider details (1)'
+          },
+         {
+            url: 'https://trello.com/c/X3jTi74r/31-users-providing-the-right-employer-contact-details',
+            text: 'User providing the right contact details (1)'
+          },
+          {
+            url: 'https://trello.com/c/D02x2dUq/58-personal-details-name-etc',
+            text: 'Personal details( 1)'
+          },
+        {
+            url: 'https://trello.com/c/9wElTVBG/69-dob',
+            text: 'Date of birth (1)'
+          },
+        {
+            url: 'https://trello.com/c/y91wrJAA/59-telephone-number-sms',
+            text: 'Telephone number and SMS (1)'
+          },
+       
+          {
+            url: 'https://trello.com/c/9vL58e0z/42-how-the-information-is-being-used-and-shared',
+            text: 'How the information is used and shared (1)'
+          },
+
+       
+        {
+            url: 'https://trello.com/c/eFy7cGvh/50-gp-details-name-and-address',
+            text: 'GP Details Name and Address (3)'
+          },
+        {
+            url: 'https://trello.com/c/7M2nBFjG/34-application-has-been-received-sent',
+            text: 'Application has been received/sent (3)'
+          },
+
+        {
+            url: 'https://trello.com/c/hCJ9mqPY/38-contacting-others',
+            text: 'Do you agree to us contacting others (5)'
+          },
+       
+          {
+            url: 'https://trello.com/c/D314bU2d/36-what-was-the-accident-and-how-did-it-happen',
+            text: 'What was the accident and how did it happen (7)'
+          },
+        {
+           url: 'https://trello.com/c/jgHemsZi/49-naming-convention',
+            text: 'Challenges surround the name (7)'
+          },
+         {
+            url: 'https://trello.com/c/AvWI9FWv/29-gov-uk-content',
+            text: 'Looking at Gov.uk content and ways into the service (7)'
+          },
+          
+          {
+            url: 'https://trello.com/c/OW6tzqv1/24-users-giving-medical-consent-declaration-development',
+            text: 'Consent for access to Medical records (7)'
+          }
+        ])
+      }}
+
+
+
+      <p><a class="button button-start" href="{{ proto.path }}" role="button">View prototype</a></p>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block footer_support_links %}
+ 
+{% endblock %}

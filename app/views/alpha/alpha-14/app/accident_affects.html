@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+How does the accident affect your ability to do things? - {{ proto.title }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+      <h1 class="heading-large">How does the accident affect your ability to do things?</h1>
+
+          <form action="{{ proto.path }}/medical_details" method="post">
+            <fieldset>
+
+              <legend class="visuallyhidden">How does the accident affect your ability to do things?</legend>
+
+              
+              <div class="form-group">
+
+
+                
+               <label class="block-label" data-target="sms-open"  for="sms">
+                  <input id="sms" type="radio" name="contact" value="sms">
+                  On a daily basis
+                </label>
+                
+                <div class="panel panel-border-narrow js-hidden" id="sms-open">     
+                  <label class="form-label" for="mobile">
+                    <span class="heading-small">Describe your daily routine is affected</span>
+                  </label>
+                  <textarea class="form-control form-control-3-4" rows="4" id="mobile" name="mobile"></textarea>
+                </div>
+
+
+
+                  
+                <label class="block-label" data-target="call-only-open"  for="call-only">
+                    It comes and goes
+                  <input id="call-only" type="radio" name="contact" value="phone">
+                </label>
+                
+                
+                <div class="panel panel-border-narrow js-hidden" id="call-only-open">     
+                  <label class="form-label" for="tel-number">
+                      <span class="heading-small">Describe how this affects your ability</span>
+                  </label>
+                  <textarea class="form-control form-control-3-4" rows="4" id="call-only-open" name="tel-number"></textarea>
+                </div>
+
+               
+
+
+
+                <label class="block-label" for="not-affect">
+                  <input id="not-affect" type="radio" name="contact" value="not-affected">
+                  It doesn't affect my ability to do things
+                </label>
+              
+
+
+               
+              </div>
+
+            </fieldset>
+
+
+
+
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+          
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

@@ -14,6 +14,7 @@ When did it happen? - {{ proto.title }} - GOV.UK
     <div class="column-two-thirds">
 
      <h1 class="heading-large">When did it happen?</h1>
+      <p>If you're unsure of the exact date just enter the month and year.</p>
 
       <form action="{{ proto.path }}/accident_happen" method="post" autocomplete="off">
 
@@ -23,9 +24,11 @@ When did it happen? - {{ proto.title }} - GOV.UK
 
 
             <legend class="visuallyhidden">When did it happen?</legend>
-<span class="form-hint">For example 20 3 1976</span>
+
             <div class="form-date">
 
+              
+            <!--<span class="form-hint">For example 20 3 1976</span>-->
               <div class="form-group form-group-day">
                 <label for="dob-day">Day</label>
                 <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="dob-hint">
@@ -42,22 +45,13 @@ When did it happen? - {{ proto.title }} - GOV.UK
               </div>
             </div>
 
-
-            
-
           </fieldset>
-
-         <!-- <div class="panel panel-border-wide">
-            You'll have to send a payslip covering the date of the accident.
-            </div>-->
 
         
           <fieldset class="primary-nav form-group">
             <legend class="visuallyhidden">Form Navigation</legend>
             <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
           </fieldset>
-
-
 
       </form>
 

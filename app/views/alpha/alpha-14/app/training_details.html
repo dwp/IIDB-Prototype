@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Your training provider at the time of the accident - {{ proto.title }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+      <form action="{{ proto.path }}/accident_report1" method="post" autocomplete="off">
+
+        <h2 class="heading-large">Your training provider at the time of the accident</h2>
+        <legend class="visuallyhidden">Your job at the time of the accident</legend>
+        
+        <div class="form-group">
+          <label class="form-label" for="company-name">Training provider name</label>
+          <input class="form-control" id="company-name" type="text" name="company-name">
+        </div>
+        <div class="form-group" id="address-container">
+         
+          
+          <label class="form-label">Address of training</label>
+          <input type="text" class="form-control add-fix" id="company-address-line1">
+
+          <label class="form-label"></label>
+          <input type="text" class="form-control add-fix"" id="company-address-line2">
+
+          <label class="form-label"></label>
+          <input type="text" class="form-control" id="company-address-line2">
+          
+        </div>
+<!--
+        <div class="form-group">
+          <label class="form-label" for="company-town">Town or city</label>
+          <input class="form-control" id="company-town" type="text" name="company-town">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="company-postcode">Postcode</label>
+          <input class="form-control" id="company-postcode" type="text" name="company-postcode">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="phone">Contact number</label>
+          <span class="form-hint">If known</span>
+          <input class="form-control" id="phone" type="number" name="phone">
+        </div>
+-->
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

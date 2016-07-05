@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% set page = {
+hideback: true
+} %}
+
+{% block page_title %}
+Application sent - {{ proto.title }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="govuk-box-highlight">
+    <h2 class="bold-large">
+      Application sent
+    </h2>
+    <!--<p>
+      <strong class="heading-medium">Your claim's been sent</strong>
+    </p>-->
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-medium">What happens next</h1>
+
+        <p>
+          It can take up to 11 weeks to get a decision depending on the information needed and how quickly people respond. 
+        </p>
+
+        <p>You will be contacted with progress updates on your application.  </p>
+
+
+       <!--<p>
+          Your doctor, employer and other medical professionals might be asked to give information about your condition and what caused it. If there's anyone you don't want to be contacted in this way call 0345 758 5433.</p>
+        </p>-->
+      
+        <p>
+          You will need a medical assessment - you'll be told when and where this will take place. If you miss an assessment, it could delay your claim.
+        </p>
+
+        <p>
+        If you want to ask us about you claim, get in touch with us on 0345 758 5433
+        </p>
+      
+       <!-- 
+        <p>
+         You don't need to contact anyone before this time if you don't hear anything. Any benefit you're awarded will be backdated. 
+        </p>-->
+
+ 
+    
+        
+        <!--
+        
+        <p>If you want to ask us about you claim, get in touch with us.
+        </p>
+        
+        <h5 class="heading-medium">Industrial Injuries Disablement Benefit Centres</h5>
+            
+                <p>
+
+                Barrow Benefit Centre  
+                <br>Post Handling Site B  
+                <br>Wolverhampton  
+                <br>WV99 1RX  
+                <br>
+                </p>
+            
+            
+                <p>Telephone: 0345 603 1358<br>
+                Textphone: 0345 608 8551<br>
+                <a href="/https://www.gov.uk/call-charges">Find out about call charges</a></p>
+            
+                <p>
+
+                Barnsley <abbr title="Industrial Injuries Disablement Benefit">IIDB</abbr> Centre  
+                <br>Mail Handling Site A  
+                <br>Wolverhampton  
+                <br>WV98 1SY
+                <br>
+                </p>
+            
+            
+                <p>Telephone: 0345 758 5433<br>
+                Textphone: 0345 608 8551<br>
+                <a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+        
+        -->
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}
