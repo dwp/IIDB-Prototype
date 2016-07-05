@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-How would you like us to contact you? - {{ proto.title }} - GOV.UK
+How does the accident affect your ability to do things? - {{ proto.title }} - GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -12,37 +12,54 @@ How would you like us to contact you? - {{ proto.title }} - GOV.UK
     <div class="column-two-thirds">
 
 
-      <h1 class="heading-large">How would you like us to contact you?</h1>
+      <h1 class="heading-large">How does the accident affect your ability to do things?</h1>
 
-          <form action="{{ proto.path }}/elligible_consent" method="post">
+          <form action="{{ proto.path }}/medical_details" method="post">
             <fieldset>
 
-              <legend class="visuallyhidden">How would you like us to contact you?</legend>
+              <legend class="visuallyhidden">How does the accident affect your ability to do things?</legend>
 
               
-              <p>We may need to contact you about your application<p>
               <div class="form-group">
 
 
                 
                <label class="block-label" data-target="sms-open"  for="sms">
                   <input id="sms" type="radio" name="contact" value="sms">
-                  Mobile number - We can provide text updates quickly via SMS
+                  On a daily basis
                 </label>
+                
                 <div class="panel panel-border-narrow js-hidden" id="sms-open">     
-                  <label class="form-label" for="mobile">Mobile number</label>
-                  <input class="form-control" name="mobile"" type="text" id="mobile">
+                  <label class="form-label" for="mobile">
+                    <span class="heading-small">Describe your daily routine is affected</span>
+                  </label>
+                  <textarea class="form-control form-control-3-4" rows="4" id="mobile" name="mobile"></textarea>
                 </div>
 
-                
+
+
+                  
                 <label class="block-label" data-target="call-only-open"  for="call-only">
+                    It comes and goes
                   <input id="call-only" type="radio" name="contact" value="phone">
-                  Landline number
                 </label>
+                
+                
                 <div class="panel panel-border-narrow js-hidden" id="call-only-open">     
-                  <label class="form-label" for="tel-number">Telephone number</label>
-                  <input class="form-control" name="tel-number"" type="text" id="tel-number">
+                  <label class="form-label" for="tel-number">
+                      <span class="heading-small">Describe how this affects your ability</span>
+                  </label>
+                  <textarea class="form-control form-control-3-4" rows="4" id="call-only-open" name="tel-number"></textarea>
                 </div>
+
+               
+
+
+
+                <label class="block-label" for="not-affect">
+                  <input id="not-affect" type="radio" name="contact" value="not-affected">
+                  It doesn't affect my ability to do things
+                </label>
               
 
 
@@ -50,6 +67,10 @@ How would you like us to contact you? - {{ proto.title }} - GOV.UK
               </div>
 
             </fieldset>
+
+
+
+
         <fieldset class="primary-nav form-group">
           <legend class="visuallyhidden">Form Navigation</legend>
           <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
