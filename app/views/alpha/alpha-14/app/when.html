@@ -14,7 +14,91 @@ Did the accident happen in the last 12 months? - {{ proto.title }} - GOV.UK
 
           <h1 class="heading-large">Did the accident happen in the last 12 months?</h1>
 
-          <form action="{{ proto.path }}/date_payslip" method="post">
+          <form action="{{ proto.path }}/accident_happen" method="post">
+                        
+             <fieldset class="inline">
+
+              <legend class="visuallyhidden">Did the accident happen in the last 12 months?</legend>
+
+              
+              <div class="form-group">
+
+
+                
+               <label class="block-label" data-target="during12"  for="during">
+                 <input id="during" type="radio" name="last12" value="current">
+                  Yes
+                  
+                </label>
+
+                <label class="block-label" data-target="previous12"  for="previous">
+                 <input id="previous" type="radio" name="last12" value="current">
+                  No
+                  
+                </label>
+
+
+
+                <div class="panel panel-border-narrow js-hidden" id="during12">     
+                      
+                      <h2 class="heading-medium">When did it happen?</h2> 
+                      <span class="form-hint" id="dob-hint">For example, 31 3 1980</span>
+              
+                      <div class="form-date">
+                        <div class="form-group form-group-day">
+                          <label class="form-label" for="dob-day">Day</label>
+                          <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="dob-hint">
+                        </div>
+                        <div class="form-group form-group-month">
+                          <label class="form-label" for="dob-month">Month</label>
+                          <input class="form-control" id="dob-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="12">
+                        </div>
+                        <div class="form-group form-group-year">
+                          <label class="form-label" for="dob-year">Year</label>
+                          <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*" min="0" max="2016">
+                        </div>
+                      </div>
+                </div>
+
+                
+                <div class="panel panel-border-narrow js-hidden" id="previous12">     
+                      
+                      <h2 class="heading-medium">When did it happen?</h2>
+                      <p>If you're unsure of the exact date just enter the month and year.</p> 
+                      <!--<span class="form-hint" id="dob-hint">For example, 31 3 1980</span>-->
+              
+                      <div class="form-date">
+                        <div class="form-group form-group-day">
+                          <label class="form-label" for="dob-day">Day</label>
+                          <input class="form-control" id="dob-day" name="dob-day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="dob-hint">
+                        </div>
+                        <div class="form-group form-group-month">
+                          <label class="form-label" for="dob-month">Month</label>
+                          <input class="form-control" id="dob-month" name="dob-month" type="number" pattern="[0-9]*" min="0" max="12">
+                        </div>
+                        <div class="form-group form-group-year">
+                          <label class="form-label" for="dob-year">Year</label>
+                          <input class="form-control" id="dob-year" name="dob-year" type="number" pattern="[0-9]*" min="0" max="2016">
+                        </div>
+                      </div>
+                </div>
+
+                
+                
+
+
+
+
+
+
+
+
+
+               
+              </div>
+
+            </fieldset>
+<!--
             <fieldset class="inline">
 
               <legend class="visuallyhidden">Did it happen in the last 12 months?</legend>
@@ -34,6 +118,10 @@ Did the accident happen in the last 12 months? - {{ proto.title }} - GOV.UK
               </div>
 
             </fieldset>
+
+
+
+-->
 
                <fieldset class="primary-nav form-group">
                   <legend class="visuallyhidden">Form Navigation</legend>
