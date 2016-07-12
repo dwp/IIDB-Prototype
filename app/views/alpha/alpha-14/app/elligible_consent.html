@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Permission to contact other people - {{ proto.title }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{{ super() }}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        
+        
+        <h1 class="heading-large">Permission to contact other people</h1>
+
+           
+        
+        
+            <p>The Department for Work and Pensions might ask the following people for more information:</p>
+
+            <ul class="list list-bullet">
+                <li>your employer</li>
+                <li>people who know about your condition, eg doctors, physiotherapists or counsellors who treated you</li>
+                <!--<li>A third party medical examiner who may arrange an appointment for an assessment</li>-->
+            </ul>
+
+           <!--<p>
+              If you want to know how we use your information refer to the <a href="https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter" title="privacy policy">privacy policy</a>.
+            </p>-->
+
+
+           
+
+    
+        
+          <form action="{{ proto.path }}/consent" method="post">
+              
+             <!-- <div class="form-group">
+
+              <h2 class="heading-medium">Do you agree to this contact?</h2>
+                  <fieldset class="inline">
+
+                      <legend class="visuallyhidden">Do you agree to this contact?</legend>
+
+                      <label class="block-label" for="account-yes">
+                        <input id="account-yes" type="radio" name="medical-consent" value="Yes">
+                        Yes
+                      </label>
+
+                      <label class="block-label" for="account-no" data-target="no-consent">
+                        <input id="account-no" type="radio" name="medical-consent" value="No">
+                        No
+                      </label>
+                 </fieldset>
+                  
+                   <div class="panel panel-border-wide js-hidden" id="no-consent">
+                  <p>
+                      If you do not consent your claim could be affected. 
+                    </p>
+                </div>
+                  
+                  
+
+              </div>-->
+               
+              
+               <fieldset>
+                  <input type="submit" value="I agree - continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                </fieldset>
+
+          </form>
+
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

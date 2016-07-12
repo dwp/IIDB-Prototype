@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Accident details - {{ proto.title }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+        
+     
+
+            <form action="{{ proto.path }}/accident_affects" method="post" autocomplete="off">
+                <fieldset>
+                    
+                <h1 class="heading-large">Accident details</h1>
+                <legend class="visuallyhidden">Accident details</legend>
+                  <h2 class="heading-small">How did the accident happen?</h2> 
+
+                    <div class="form-group">
+                        
+                          <label class="form-label form-hint" for="text-area"><!--Give as much detail as possible.-->
+                          </label>
+                          <textarea class="form-control form-control-3-4" rows="4" id="text-area" name="text-area"></textarea>
+                           
+                   
+                    </div>
+
+                  
+                  
+                  <div class="form-group">
+                       
+                        <h2 class="heading-small">What was injured or affected?</h2>  
+
+                          <label class="form-label" for="text-area">List the parts of your body that were injured.
+                          </label>
+                          <span class="form-hint">For example: Left leg or little finger right hand.</span>
+                          <textarea class="form-control form-control-3-4" rows="1" id="text-area" name="text-area"></textarea>
+
+                  </div>  
+                    
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+
+
+
+</div>
+</div>
+</main>
+
+
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+
+{% endblock %}
