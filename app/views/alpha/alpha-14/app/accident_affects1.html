@@ -27,10 +27,15 @@ Has the accident affected your ability to do things? - {{ proto.title }} - GOV.U
                       Yes
                     </label>
 
-                    <label class="block-label" for="radio-indent-2">
+                    <label class="block-label" for="radio-indent-2" data-target="no_affect">
                       <input id="radio-indent-2" type="radio" name="report_employer" value="false">
                       No
                     </label>
+                     <div class="panel panel-border-narrow  js-hidden" id="no_affect">
+                      <p>To get Industrial Injuries Disablement Benefit (IIDB) the accident or event must have an effect on your ability.</p>
+
+                      <p>A ‘medical advisor’ will assess your disability on a scale of 1 to 100%.</p>
+                    </div>
 
                   </div>
 

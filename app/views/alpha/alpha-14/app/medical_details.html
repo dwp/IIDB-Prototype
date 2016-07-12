@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-Your clinic or doctor - {{ proto.title }} - GOV.UK
+Your current clinic or doctor - {{ proto.title }} - GOV.UK
 
 {% endblock %}
 
@@ -14,7 +14,7 @@ Your clinic or doctor - {{ proto.title }} - GOV.UK
 
 
         
-      <h3 class="heading-large">Your clinic or doctor</h3>
+      <h3 class="heading-large">Your current clinic or doctor</h3>
 
       <form action="{{ proto.path }}/personal_details" method="post" autocomplete="off">
 
