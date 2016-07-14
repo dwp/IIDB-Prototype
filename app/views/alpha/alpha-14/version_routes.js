@@ -6,8 +6,8 @@ module.exports = function(router, config) {
 
     switch(requestedPage) {
 
-      case 'location':
-        if(postData['reason'] == 'other') {
+      case 'accident_affects1':
+        if(postData['withinregion'] == 'false') {
           res.redirect('ineligible');
         }
       break;
