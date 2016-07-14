@@ -1,0 +1,69 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Were you in England, Scotland or Wales when you had your accident? - {{ proto.title }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+       
+
+          <h1 class="heading-large">Were you in England, Scotland or Wales when you had your accident?</h1>
+
+            <form action="{{ proto.path }}/accident_affects1" method="post">
+                <fieldset class="inline">
+
+                  <legend class="visuallyhidden">Were you in England, Scotland or Wales when you had your accident?</legend>
+
+                  <div class="form-group">
+
+                    <label class="block-label" for="radio-indent-1">
+                      <input id="radio-indent-1" type="radio" name="withinregion" value="true">
+                      Yes
+                    </label>
+
+                    <label class="block-label" data-target="about-accident" for="radio-indent-2">
+                      <input id="radio-indent-2" type="radio" name="withinregion" value="false">
+                      No
+                    </label>
+
+                    <div class="panel panel-border-narrow js-hidden" id="about-accident">
+                      
+                      <p>If you live and work in Northern Ireland you need to apply using a <a  href="https://www.nidirect.gov.uk/">different system</a></p>
+                      
+
+                      <p>
+Alternatively
+                      <a  href="https://www.gov.uk/international-pension-centre">
+
+                      contact the International
+                Pension Centre</a> for advice on claiming for accidents that happened outside the UK. 
+                        </p>
+                    </div>
+
+                  </div>
+
+                </fieldset>
+
+                   <fieldset class="primary-nav form-group">
+                      <legend class="visuallyhidden">Form Navigation</legend>
+                      <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    </fieldset>
+              </form>
+
+
+
+</div>
+</div>
+</main>
+{% endblock %}
+
+{% block footer_support_links %}
+ 
+{% endblock %}

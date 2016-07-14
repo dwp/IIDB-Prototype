@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">{{ proto.version | upper | trC('-',' ') }}</h1>
+
+      <p>This version comprises the following Trello Cards from the <a href="https://trello.com/b/7yUKtZyd">IIDB Hypothesis Board</a></p>
+
+       {{
+        helpers.linkList([
+
+          {
+            url: 'https://trello.com/c/dDT578rh/30-information-needed-to-complete-the-application',
+            text: 'Information needed to complete the application (1)'
+          },
+        
+          {
+            url: 'https://trello.com/c/6svsMgiS/40-method-and-frequency-of-payment-new-claims',
+            text: 'Method and Frequency of Payment NEW CLAIMS (1)'
+          },
+          {
+            url: 'https://trello.com/c/lPB0Ouc6/52-payment-frequency-for-new-accidents-added-to-existing-cases-in-pay',
+            text: 'Payment frequency for new accidents added to existing cases in pay. (1)'
+          },
+          {
+            url: 'https://trello.com/c/63zvTHLm/73-users-are-clear-that-iidb-is-for-england-scotland-and-wales-not-ni-uk-reference-needs-to-be-clear-to-outline-this',
+            text: 'Users are clear that IIDB is for England, Scotland and wales not NI - UK reference needs to be clear to outline this (1)'
+          },
+          {
+            url: 'https://trello.com/c/aUc48YXF/11-some-users-have-suggested-they-want-further-acknowledgement-in-addition-to-the-application-complete-page',
+            text: 'Some users have suggested they want further acknowledgement in addition to the "application complete" page (1)'
+          },
+          {
+            url: 'https://trello.com/c/q6GV9vlP/72-capturing-the-impact-of-injury-to-confirm-disability',
+            text: 'Capturing the impact of injury to confirm disability (1)'
+          },
+
+
+
+
+          {
+            url: 'https://trello.com/c/eFy7cGvh/50-gp-details-name-and-address',
+            text: 'GP Details Name and Address (4)'
+          },
+          {
+            url: 'https://trello.com/c/AvWI9FWv/29-gov-uk-content',
+            text: 'Gov UK content (8)'
+          },
+       
+        {
+           url: 'https://trello.com/c/jgHemsZi/49-naming-convention',
+            text: 'Challenges surround the name (8)'
+          }
+        ])
+      }}
+
+
+
+      <p><a class="button button-start" href="{{ proto.path }}" role="button">View prototype</a></p>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block footer_support_links %}
+ 
+{% endblock %}

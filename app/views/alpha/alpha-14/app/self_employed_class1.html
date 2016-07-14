@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-Did you report the accident to your employer? - {{ proto.title }} - GOV.UK
+  {{ proto.title + ' ' + proto.version }} - Am I elligible to claim?
 {% endblock %}
 
 {% block content %}
@@ -11,28 +11,30 @@ Did you report the accident to your employer? - {{ proto.title }} - GOV.UK
   <div class="grid-row">
     <div class="column-two-thirds">
 
-     <h1 class="heading-large">Did you report the accident to your employer?</h1>
+          <h1 class="heading-large">Do you pay class 1 national insurance contributions?</h1>
+            <span class="form-hint">If you are unsure contact your accountant or <a title="contact HMRC" href="https://www.gov.uk/government/organisations/hm-revenue-customs/contact/status-customer-service-team" target="_blank">HMRC</a></span>
 
-        
-
-       <form action="{{ proto.path }}/when" method="post">
+            <form action="{{ proto.path }}/elligible_consent" method="post">
                 <fieldset class="inline">
 
-                  <legend class="visuallyhidden">Did you report the accident to your employer?</legend>
+                  <legend class="visuallyhidden">Do you pay class 1 national insurance contributions?</legend>
+
 
                   <div class="form-group">
 
                     <label class="block-label" for="radio-indent-1">
-                      <input id="radio-indent-1" type="radio" name="report_employer" value="true">
+                      <input id="radio-indent-1" type="radio" name="payclass1" value="true">
                       Yes
                     </label>
 
                     <label class="block-label" for="radio-indent-2">
-                      <input id="radio-indent-2" type="radio" name="report_employer" value="false">
+                      <input id="radio-indent-2" type="radio" name="payclass1" value="false">
                       No
                     </label>
 
+
                   </div>
+
 
                 </fieldset>
 
@@ -42,11 +44,9 @@ Did you report the accident to your employer? - {{ proto.title }} - GOV.UK
                     </fieldset>
               </form>
 
-       
-      
 
-    </div>
-  </div>
+</div>
+</div>
 </main>
 
 {% endblock %}
@@ -54,5 +54,6 @@ Did you report the accident to your employer? - {{ proto.title }} - GOV.UK
 {% block body_end %}
 
   {{ super() }}
+
 
 {% endblock %}

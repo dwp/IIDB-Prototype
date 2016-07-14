@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-Did you report the accident to your employer? - {{ proto.title }} - GOV.UK
+  {{ proto.title + ' ' + proto.version }} - Medical help
 {% endblock %}
 
 {% block content %}
@@ -11,24 +11,22 @@ Did you report the accident to your employer? - {{ proto.title }} - GOV.UK
   <div class="grid-row">
     <div class="column-two-thirds">
 
-     <h1 class="heading-large">Did you report the accident to your employer?</h1>
-
-        
-
-       <form action="{{ proto.path }}/when" method="post">
+      <h1 class="heading-large">Did you seek professional medical advice after you accident?</h1>
+    
+      <form action="{{ proto.path }}/medical_names" method="post">
                 <fieldset class="inline">
 
-                  <legend class="visuallyhidden">Did you report the accident to your employer?</legend>
+                  <legend class="visuallyhidden">Did you seek medical davice after you accident?</legend>
 
                   <div class="form-group">
 
                     <label class="block-label" for="radio-indent-1">
-                      <input id="radio-indent-1" type="radio" name="report_employer" value="true">
+                      <input id="radio-indent-1" type="radio" name="seek_medical" value="true">
                       Yes
                     </label>
 
                     <label class="block-label" for="radio-indent-2">
-                      <input id="radio-indent-2" type="radio" name="report_employer" value="false">
+                      <input id="radio-indent-2" type="radio" name="seek_medical" value="false">
                       No
                     </label>
 
@@ -42,8 +40,6 @@ Did you report the accident to your employer? - {{ proto.title }} - GOV.UK
                     </fieldset>
               </form>
 
-       
-      
 
     </div>
   </div>

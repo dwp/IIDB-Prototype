@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Were you at work?- {{ proto.title }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+   
+
+          <h1 class="heading-large">Were you at work?</h1>
+
+          <form action="{{ proto.path }}/self_employed" method="post">
+
+            <fieldset class="inline">
+
+              <legend class="visuallyhidden">Were you at work?</legend>
+
+              <div class="form-group">
+
+                <label class="block-label" for="radio-indent-1">
+                  <input id="radio-indent-1" type="radio" name="were-working" value="true">
+                  Yes
+                </label>
+
+                <label class="block-label" data-target="training" for="radio-indent-2">
+                  <input id="radio-indent-2" type="radio" name="were-working" value="false">
+                  No
+                </label>
+              
+
+                <div class="panel panel-border-narrow js-hidden" id="training">
+                  <h2 class="heading-small">Were you on approved employment training?</h2>
+                  <legend class="visuallyhidden">Were you on approved employment training?</legend>
+                
+                  <label class="block-label" for="radio-indent-3">
+                    <input id="radio-indent-3" type="radio" name="were-working-training" value="true">
+                    Yes
+                  </label>
+
+                  <label class="block-label" for="radio-indent-4">
+                    <input id="radio-indent-4" type="radio" name="were-working-training" value="false">
+                    No
+                  </label>
+
+                </div>
+              
+       
+
+
+
+              </div>
+
+            </fieldset>
+
+
+            
+
+
+
+
+               <fieldset class="primary-nav form-group">
+                  <legend class="visuallyhidden">Form Navigation</legend>
+                  <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                </fieldset>
+          </form>
+
+
+
+
+
+
+</div>
+</div>
+</main>
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+
+{% endblock %}
