@@ -115,7 +115,7 @@ if (typeof(routes) != "function"){
 }
 
 // Strip .html and .htm if provided
-app.get(/\.html?$/i, function (req, res){
+app.all(/\.html?$/i, function (req, res){
   var path = req.path;
   var parts = path.split('.');
   parts.pop();
@@ -124,7 +124,7 @@ app.get(/\.html?$/i, function (req, res){
 });
 
 // auto render any view that exists
-app.get(/^\/([^.]+)$/, function (req, res) {
+app.all(/^\/([^.]+)$/, function (req, res) {
 
   var path = (req.params[0]);
 
