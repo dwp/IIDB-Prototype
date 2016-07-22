@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  {{ proto.title + ' ' + proto.version }} - Your details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-large">Your personal details</h1>
+      <p>This means the person who's claiming the benefit. Don't put your own details if you're applying on behalf of someone.</p>
+      <form action="{{ proto.path }}/your_details_cont" method="post" autocomplete="off">
+
+        <div class="form-group">
+          <label class="form-label" for="input-name">First name</label>
+          <input class="form-control" id="input-name" type="text" name="firstname">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="input-surname">Surname</label>
+          <input class="form-control" id="input-surname" type="text" name="surname">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="ni-number">
+              National Insurance number
+              <span class="form-hint">Find this on a payslip.</span>
+            </label>
+            <input class="form-control" id="ni-number" type="text" name="nino">
+        </div>
+
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

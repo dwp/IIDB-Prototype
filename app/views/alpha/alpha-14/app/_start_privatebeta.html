@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% set page = {
+hideback: true
+} %}
+
+{% block page_title %}
+How to apply - {{ proto.title }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+{{ super() }}
+
+    <div class="grid-row gov-pages">
+    
+        <div class="column-two-thirds">
+
+            <h1 class="heading-xlarge">Industrial Injuries Disablement Benefit</h1>
+      
+         
+            <h2 class="heading-medium">If you've been injured in an accident at work</h2>
+           
+            <p>You can apply online. To claim you'll need:</p>
+            
+            <ul class="list list-bullet text">
+                <li>date of the accident</li>
+                <li>details of the doctor or clinic you're registered with</li>
+                <li>details of the accident</li>
+                <li>your employment details at the time of the accident</li>
+               <!-- <li>National Insurance number</li>
+                <li>your bank details</li>-->
+            </ul>
+            <p>As part of your application you must give Department for Work and Pensions permission to contact your employer and medical professionals. You can withdraw this permission at any time after you apply.</p>
+            <p>
+              You'll also usually need a medical examination to assess your condition. 
+            </p>
+            
+            
+            <form action="{{ proto.path }}/location" method="post" autocomplete="off">
+
+                <fieldset class="primary-nav form-group">
+                  <legend class="visuallyhidden">Form Navigation</legend>
+                  <input type="submit" value="Start now" class="button button-start" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                </fieldset>
+
+              </form>
+            
+            
+        
+                        
+            <h5 class="heading-small">Industrial Injuries Disablement Benefit centre</h5>
+            Telephone: 0345 758 5433<br>
+            Textphone: 0345 608 8551<br>
+            <a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+
+
+            
+        </div>
+       
+        
+        
+        
+       
+        {#
+        <div class="column-one-third">
+            <aside class="related">
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Jobseeker's Allowance and low income benefits</h5>
+                        <a href="https://www.gov.uk/diffuse-mesothelioma-payment">Diffuse mesothelioma payments</a>                 
+                        <a class="bold" href="https://www.gov.uk/browse/benefits/jobseekers-allowance">More <span class="visuallyhidden">in Jobseeker's Allowance and low income benefits</span></a>
+                </div>
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Benefits</h5>
+                    <a href="https://www.gov.uk/benefit-fraud">Benefit fraud</a>
+                    <a class="bold" href="https://www.gov.uk/browse/benefits">More <span class="visuallyhidden">in Benefits</span></a>
+                </div>
+                <div class="inner group font-xsmall">
+                    <h5 class="heading-medium">Elsewhere on GOV.UK</h5>
+                
+                    <a href="https://www.gov.uk/day-care-centres">Disability day care centres</a>
+                  
+                </div>
+            </aside>
+        </div>
+        #}
+        
+        
+        
+        
+    </div>
+ 
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+
+  {{ super() }}
+
+{% endblock %}

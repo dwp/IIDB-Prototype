@@ -14,7 +14,45 @@ Did the accident happen in the last 12 months? - {{ proto.title }} - GOV.UK
 
           <h1 class="heading-large">Did the accident happen in the last 12 months?</h1>
 
-          <form action="{{ proto.path }}/date_payslip" method="post">
+          <form action="{{ proto.path }}/accident_happen" method="post">
+                        
+             <fieldset>
+
+              <legend class="visuallyhidden">Did the accident happen in the last 12 months?</legend>
+
+              
+              <div class="form-group">
+
+
+                
+               <label class="block-label" data-target="during12"  for="during12">
+                 <input id="during12" type="radio" name="when-happen" value="true">
+                  Yes
+                  
+                </label>
+                <div class="panel panel-border-narrow js-hidden" id="during12">     
+                 xxx<!-- <label class="form-label" for="mobile">Mobile number</label>
+                  <input class="form-control" name="mobile"" type="text" id="mobile">-->
+                </div>
+
+                
+                <label class="block-label" data-target="after"  for="after">
+                  <input id="after" type="radio" name="when-happen" value="false">
+                  No
+                  
+                </label>
+                <div class="panel panel-border-narrow js-hidden" id="after">     
+                 yyy<!-- <label class="form-label" for="tel-number">Telephone number</label>
+                  <input class="form-control" name="tel-number"" type="text" id="tel-number">-->
+                </div>
+              
+
+
+               
+              </div>
+
+            </fieldset>
+<!--
             <fieldset class="inline">
 
               <legend class="visuallyhidden">Did it happen in the last 12 months?</legend>
@@ -34,6 +72,10 @@ Did the accident happen in the last 12 months? - {{ proto.title }} - GOV.UK
               </div>
 
             </fieldset>
+
+
+
+-->
 
                <fieldset class="primary-nav form-group">
                   <legend class="visuallyhidden">Form Navigation</legend>
