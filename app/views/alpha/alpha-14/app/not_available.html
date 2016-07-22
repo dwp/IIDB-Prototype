@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+What's your availability for a medical assessment before 29th July 2016 - {{ proto.title }} - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+
+<main id="content" role="main">
+  {{ super() }}
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+
+      <h2 class="heading-large">What's your availability for a medical assessment before 29th July 2016.</h2>
+      <form action="{{ proto.path }}/give_dates" method="post" autocomplete="off">
+
+        <div class="form-group">
+
+<script>
+moment().format();
+</script>
+
+
+         <label class="block-label" for="radio-indent-1">
+            <input id="radio-indent-1" type="radio" name="available" value="specific">
+            I have dates I am unavailable.
+          </label>
+
+           <label class="block-label" for="radio-indent-4">
+            <input id="radio-indent-4" type="radio" name="available" value="both">
+            I am free to to attend anytime before the 29th July 2016.
+          </label>
+          
+        </div>
+
+       
+
+        <fieldset class="primary-nav form-group">
+          <legend class="visuallyhidden">Form Navigation</legend>
+          <input type="submit" value="Continue" class="button" id="submitButton" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </fieldset>
+
+        </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+        
+
+
+  {{ super() }}
+
+
+{% endblock %}
