@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
->What specific date(s) are you unavailable before 29th July 2016? - {{ proto.title }} - GOV.UK
+What dates are you unavailable before 29th July 2016? - {{ proto.title }} - GOV.UK
 {% endblock %}
 
 {% block content %}
@@ -12,7 +12,7 @@
     <div class="column-two-thirds">
 
 
-      <h2 class="heading-large">What specific date(s) are you unavailable before 29th July 2016?</h2>
+      <h2 class="heading-large">What dates are you unavailable before 29th July 2016?</h2>
 
 
       <form action="{{ proto.path }}/xxx" method="post" autocomplete="off">
@@ -45,19 +45,20 @@
         </div>
 
 
-         <div class="column-one-third no-padding">
-              <div class="list-item">ddd
+        <!-- <div class="column-one-third no-padding">
+              <div class="list-item">
               </div>
-            </div>
-          </fieldset>
-
+            </div>_-->
+  
+<!--
            <div class="grid-row">
         <div class="column-two-thirds">
           <div class="form-group">
-            <button id="add-button" class="button button-add-another">Add another</button>
+            <button id="add-button" class="button button-add-another">Add another date</button>
           </div>
         </div>
       </div>
+      -->
 
 
 
@@ -79,7 +80,7 @@
 {% block body_end %}
 
   {{ super() }}
-
+  
 </script>
 
 {% endblock %}

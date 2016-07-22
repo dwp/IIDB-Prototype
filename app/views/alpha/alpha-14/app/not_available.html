@@ -1,10 +1,11 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-What dates are you unable to attend a medical assessment?- {{ proto.title }} - GOV.UK
+What's your availability for a medical assessment before 29th July 2016 - {{ proto.title }} - GOV.UK
 {% endblock %}
 
 {% block content %}
+
 
 <main id="content" role="main">
   {{ super() }}
@@ -12,34 +13,26 @@ What dates are you unable to attend a medical assessment?- {{ proto.title }} - G
     <div class="column-two-thirds">
 
 
-      <h2 class="heading-large">What dates are you unable to attend a medical assessment?</h2>
-      <p>Your medical assesment needs to be booked before 29th July 2016.</p>
+      <h2 class="heading-large">What's your availability for a medical assessment before 29th July 2016.</h2>
       <form action="{{ proto.path }}/give_dates" method="post" autocomplete="off">
 
         <div class="form-group">
-         
 
-          <label class="block-label" for="dates">
-          <input id="dates" type="checkbox" name="date-r">
-          I am unavailable for specific dates before this date
+<script>
+moment().format();
+</script>
+
+
+         <label class="block-label" for="radio-indent-1">
+            <input id="radio-indent-1" type="radio" name="available" value="specific">
+            I have dates I am unavailable.
           </label>
-        </div>
 
-        <div class="form-group">
-          <label class="block-label for="dates-specific">
-          <input id="dates-specific" type="checkbox" name="date-s">
-          I am Unavailable for a date range before this date
+           <label class="block-label" for="radio-indent-4">
+            <input id="radio-indent-4" type="radio" name="available" value="both">
+            I am free to to attend anytime before the 29th July 2016.
           </label>
-        </div>
-
-          <p>or</p>
-      
-
-        <div class="form-group">
-          <label class="block-label for="dates">
-          <input id="free" type="checkbox" name="date-s">
-          I am free to attend a medical assessment up until the 29th July 2016
-          </label>
+          
         </div>
 
        
@@ -58,7 +51,10 @@ What dates are you unable to attend a medical assessment?- {{ proto.title }} - G
 {% endblock %}
 
 {% block body_end %}
+        
+
 
   {{ super() }}
+
 
 {% endblock %}
